@@ -31,5 +31,10 @@
  - [ ] Cost Minimization: Argue that success rate optimization takes place due to collaboration via cost minimization (plots presenting absolute Bellman error)
  - [ ] Optimal Strategies: Gain insights into agent behavior by visualizing optimal strategies (snapshots of game)
 
- ## 
+ ## Conclusion
+ - [ ] Wrap up important outcomes (collaboration in the case of partial observability)
+ - [ ] Comment on performance optimizations (weighted combinations, account for surprise)
+ - [ ] Pave way for future directions
+
+ ##    
 
