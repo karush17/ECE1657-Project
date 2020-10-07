@@ -13,5 +13,11 @@
 - [ ] MARL Review Papers, Reports, Surveys, etc. for Markov Games
 - [ ] Should cover thorough background from Game Theoretic and RL perspective
 
+## Review
+- [ ] Focus should be on Stochastic Markov Games and their analytical description
+- [ ] Description should cover introduction, notation, background and expressions
+- [ ] Each term should be explained clearly and concisely
+- [ ] Nash Equilibrium, Optimal Responses and other important results must be highlighted
+
 ## 
 
