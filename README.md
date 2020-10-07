@@ -36,5 +36,9 @@
  - [ ] Comment on performance optimizations (weighted combinations, account for surprise)
  - [ ] Pave way for future directions
 
- ##    
+ ## Appendix
+ - [ ] Add Derivations related to Contractions, policy optimization, etc. (basically RL)
+ - [ ] Additional Results (plots, other stats, visuals)
+ - [ ] Add Implementation Details (describe all hyperparameters)
+
 
