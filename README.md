@@ -20,5 +20,11 @@
 - [ ] Each term should be explained clearly and concisely
 - [ ] Nash Equilibrium, Optimal Responses and other important results must be highlighted
 
+## Learning in Stochastic Games
+- [ ] Partial Observability: Decribe and walk the reader through the partial observability setting
+- [ ] Explain analytically and intuitively how agents tackle this problem
+- [ ] Collaborative Agents: Explain each algorithm in detail and how it entaisl to collaboration between different agents (4 sections- IQL, COMA, VDN, QMIX)
+- [ ] Note that the emphasis in this section should be mostly on algorithms and their functioning from Game Theoretic perspective
+
 ## 
 
