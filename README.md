@@ -8,14 +8,15 @@
 - [ ] Describe the environment setup (StarCraft II) and why is this suitable from a Game Theoretic perspective
 - [ ] End up by laying out the outcomes expected (coordination must prevail, agent ineractions vary as per cost reduction, obtaining optimal strategies to defeat the enemy)
 
-## Literature
-- [ ] QMIX, VDN, COMA, IQL, Shimon Whiteson papers, Jakob Foerster thesis, etc. for algorithms
-- [ ] MARL Review Papers, Reports, Surveys, etc. for Markov Games
+## Related Work
+- [ ] Multi-Agent Reinforcement Learning: QMIX, VDN, COMA, IQL, Shimon Whiteson papers, Jakob Foerster thesis, etc. for algorithms
+- [ ] Stochastic Games: MARL Review Papers, Reports, Surveys, etc. for Markov Games
 - [ ] Should cover thorough background from Game Theoretic and RL perspective
+- [ ] StarCraft II: Emphasize on the application area and its relation to real world on the basis of coordination
 
-## Review
-- [ ] Focus should be on Stochastic Markov Games and their analytical description
-- [ ] Description should cover introduction, notation, background and expressions
+## Background
+- [ ] Stochastic Markov Games: Focus should be on Stochastic Markov Games and their analytical description
+- [ ] Multi-Agent Learning: Description should cover introduction, notation, background and expressions
 - [ ] Each term should be explained clearly and concisely
 - [ ] Nash Equilibrium, Optimal Responses and other important results must be highlighted
 
