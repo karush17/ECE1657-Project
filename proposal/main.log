@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  24 OCT 2020 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  24 OCT 2020 14:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -441,13 +441,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  10027 strings out of 479916
  151741 string characters out of 5886642
- 464417 words of memory out of 5000000
+ 465417 words of memory out of 5000000
  26452 multiletter control sequences out of 15000+600000
  537258 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,66p,512b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,66p,523b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
 <k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf" (1 page, 55227 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf" (1 page, 57632 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream
