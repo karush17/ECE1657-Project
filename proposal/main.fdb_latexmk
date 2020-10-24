@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex main"] 1603563876 "main.aux" "main.bbl" "main" 1603566792
+["bibtex main"] 1603563876 "main.aux" "main.bbl" "main" 1603567126
   "k:/texlive/2020/texmf-dist/bibtex/bst/base/abbrv.bst" 1602112780 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "main.aux" 1603566790 815 39507ca9d62fa46fedbe755ad9b855e8 "pdflatex"
+  "main.aux" 1603567121 815 39507ca9d62fa46fedbe755ad9b855e8 "pdflatex"
   "sample.bib" 1603563813 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1603566789 "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.tex" "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf" "main" 1603566792
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.aux" 1603566790 815 39507ca9d62fa46fedbe755ad9b855e8 ""
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.tex" 1603566787 3385 c00790e48a7b2a7e58eab337f2345bed ""
+  "main.blg"
+["pdflatex"] 1603567119 "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.tex" "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf" "main" 1603567126
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.aux" 1603567121 815 39507ca9d62fa46fedbe755ad9b855e8 ""
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.tex" 1603567125 3669 ad911b097832e860c4b3bb7571ef448e ""
   "k:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1602113504 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "k:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1602112918 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "k:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1602112918 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -89,14 +89,14 @@
   "k:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1602115890 5062763 7a53a10380656550343c994a10f7e0d4 ""
   "k:/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1602122502 2535209 4886ada57fdae792f73dace42a79ad61 ""
   "k:/texlive/2020/texmf.cnf" 1602115852 673 4ae7b2f49cee444c5343a45b5d0f169c ""
-  "main.aux" 1603566790 815 39507ca9d62fa46fedbe755ad9b855e8 "pdflatex"
+  "main.aux" 1603567121 815 39507ca9d62fa46fedbe755ad9b855e8 "pdflatex"
   "main.bbl" 1603563876 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.out" 1603566790 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1603566787 3385 c00790e48a7b2a7e58eab337f2345bed ""
+  "main.out" 1603567121 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1603567125 3669 ad911b097832e860c4b3bb7571ef448e ""
   (generated)
+  "main.out"
   "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.log"
   "main.aux"
-  "main.out"
   "main.log"
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf"
   "main.pdf"
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf"
