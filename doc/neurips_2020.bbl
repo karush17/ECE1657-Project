@@ -125,4 +125,77 @@ Luis Macedo and Amilcar Cardoso.
   environments populated with entities.
 \newblock In {\em 2005 portuguese conference on artificial intelligence}, 2005.
 
+\bibitem{vdn}
+Peter Sunehag, Guy Lever, Audrunas Gruslys, Wojciech~Marian Czarnecki, Vinicius
+  Zambaldi, Max Jaderberg, Marc Lanctot, Nicolas Sonnerat, Joel~Z. Leibo, Karl
+  Tuyls, and Thore Graepel.
+\newblock Value-decomposition networks for cooperative multi-agent learning
+  based on team reward.
+\newblock In {\em Proceedings of the 17th International Conference on
+  Autonomous Agents and MultiAgent Systems}, AAMAS ’18, page 2085–2087,
+  2018.
+
+\bibitem{qmix}
+Tabish Rashid, Mikayel Samvelyan, Christian~Schroeder de~Witt, Gregory
+  Farquhar, Jakob Foerster, and Shimon Whiteson.
+\newblock Qmix: Monotonic value function factorisation for deep multi-agent
+  reinforcement learning.
+\newblock In {\em ICML 2018: Proceedings of the Thirty-Fifth International
+  Conference on Machine Learning}, 2018.
+
+\bibitem{coordinate}
+Jianye Hao, Dongping Huang, Yi~Cai, and Ho-Fung Leung.
+\newblock Reinforcement social learning of coordination in networked
+  cooperative multiagent systems.
+\newblock In {\em AAAI workshop on multiagent interaction without prior
+  coordination (MIPC 2014)}, 2014.
+
+\bibitem{coordinatedrl}
+Carlos Guestrin, Michail Lagoudakis, and Ronald Parr.
+\newblock Coordinated reinforcement learning.
+\newblock In {\em ICML}, volume~2, pages 227--234, 2002.
+
+\bibitem{marlover}
+Johannes Ackermann, Volker Gabler, Takayuki Osa, and Masashi Sugiyama.
+\newblock Reducing overestimation bias in multi-agent domains using double
+  centralized critics.
+\newblock {\em arXiv preprint arXiv:1910.01465}, 2019.
+
+\bibitem{iqn}
+Xueguang Lyu and Christopher Amato.
+\newblock Likelihood quantile networks for coordinating multi-agent
+  reinforcement learning.
+\newblock In {\em Proceedings of the 19th International Conference on
+  Autonomous Agents and MultiAgent Systems}, 2020.
+
+\bibitem{a3c}
+Volodymyr Mnih, Adria~Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy
+  Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu.
+\newblock Asynchronous methods for deep reinforcement learning.
+\newblock In {\em International conference on machine learning}, 2016.
+
+\bibitem{rainbow}
+Matteo Hessel, Joseph Modayil, Hado Van~Hasselt, Tom Schaul, Georg Ostrovski,
+  Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, and David Silver.
+\newblock Rainbow: Combining improvements in deep reinforcement learning.
+\newblock {\em arXiv preprint arXiv:1710.02298}, 2017.
+
+\bibitem{effectiveexp}
+Bradly~C Stadie, Sergey Levine, and Pieter Abbeel.
+\newblock Incentivizing exploration in reinforcement learning with deep
+  predictive models.
+\newblock {\em arXiv preprint arXiv:1507.00814}, 2015.
+
+\bibitem{statemarginal}
+Lisa Lee, Benjamin Eysenbach, Emilio Parisotto, Eric Xing, Sergey Levine, and
+  Ruslan Salakhutdinov.
+\newblock Efficient exploration via state marginal matching.
+\newblock {\em arXiv preprint arXiv:1906.05274}, 2019.
+
+\bibitem{marlsurp}
+Wei Ren, Randal~W Beard, and Ella~M Atkins.
+\newblock A survey of consensus problems in multi-agent coordination.
+\newblock In {\em Proceedings of the 2005, American Control Conference, 2005.},
+  2005.
+
 \end{thebibliography}

@@ -5,45 +5,45 @@ The style file: unsrt.bst
 Database file #1: sample.bib
 Warning--empty publisher in rl
 Warning--empty journal in smirl
-You've used 20 entries,
+You've used 31 entries,
             1791 wiz_defined-function locations,
-            537 strings with 8062 characters,
-and the built_in function-call counts, 4790 in all, are:
-= -- 274
-> -- 479
-< -- 2
-+ -- 167
-- -- 147
-* -- 372
-:= -- 865
-add.period$ -- 54
-call.type$ -- 20
-change.case$ -- 19
+            586 strings with 10657 characters,
+and the built_in function-call counts, 7559 in all, are:
+= -- 466
+> -- 681
+< -- 5
++ -- 238
+- -- 207
+* -- 538
+:= -- 1308
+add.period$ -- 87
+call.type$ -- 31
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 165
-empty$ -- 380
-format.name$ -- 147
-if$ -- 987
+cite$ -- 33
+duplicate$ -- 313
+empty$ -- 636
+format.name$ -- 207
+if$ -- 1614
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 14
-newline$ -- 96
-num.names$ -- 20
-pop$ -- 93
+int.to.str$ -- 31
+missing$ -- 25
+newline$ -- 151
+num.names$ -- 31
+pop$ -- 150
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 85
+skip$ -- 167
 stack$ -- 0
-substring$ -- 82
-swap$ -- 31
-text.length$ -- 2
+substring$ -- 136
+swap$ -- 82
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 27
-width$ -- 22
-write$ -- 195
+while$ -- 42
+width$ -- 33
+write$ -- 309
 (There were 2 warnings)
