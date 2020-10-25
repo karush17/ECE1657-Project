@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  25 OCT 2020 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  25 OCT 2020 14:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -617,320 +617,30 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [1
+ (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl
 
+Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
-{k:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+) [1
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 99.
-(k:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 99.
-
-[2]
-<tderror.png, id=171, 802.6788pt x 345.4506pt>
-File: tderror.png Graphic file (type png)
-<use tderror.png>
-Package pdftex.def Info: tderror.png  used on input line 109.
-(pdftex.def)             Requested size: 170.71089pt x 71.12881pt.
-
-Overfull \hbox (16.89046pt too wide) in paragraph at lines 115--116
-[][]\OT1/ptm/m/n/10 (-20) Various
- []
-
-
-Overfull \hbox (14.79602pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) MARL
- []
-
-
-Overfull \hbox (8.1771pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) meth-
- []
-
-
-Overfull \hbox (0.5861pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) ods
- []
-
-
-Overfull \hbox (3.50073pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) [[]]
- []
-
-
-Overfull \hbox (8.1006pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) make
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (+20) of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (+20) a
- []
-
-
-Overfull \hbox (3.84944pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) dual
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (+20) ar-
- []
-
-
-Overfull \hbox (0.5528pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) chi-
- []
-
-
-Overfull \hbox (2.2128pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (-20) ture
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 (+20) ap-
- []
-
-[3 <c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/tderror.png>]
-
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 137.
-
-
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 137.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-[][]\OT1/ptm/b/n/10 Theorem 1. []\OT1/ptm/m/it/10 (+20) Given a sur-prise value
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-\OT1/ptm/m/it/10 (+20) func-tion $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 N$\OT1/ptm/m/it/10 (+20) , the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-\OT1/ptm/m/it/10 (+20) en-ergy op-er-a-tor $\OMS/cmsy/m/n/10 T\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 ) =
- []
-
-
-Overfull \hbox (76.9562pt too wide) detected at line 146
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--148
-\OT1/ptm/m/n/10 (+20) where $\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 r \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^M[]Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u[]; s[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 ) +
- []
-
-
-Overfull \hbox (159.1255pt too wide) detected at line 150
-[]
- []
-
-
-Overfull \hbox (53.20749pt too wide) detected at line 153
-[]
- []
-
-
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 154.
-
-
-Overfull \hbox (9.39687pt too wide) in paragraph at lines 158--159
-\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 Q[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u[]; s[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; Q[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u[]; s[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :::; Q[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u[]; s[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g$
- []
-
-
-Overfull \hbox (73.20349pt too wide) detected at line 161
-[]
- []
-
-[4pdfTeX warning (ext4): destination with the same identifier (name{equation.3.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.161 \end{gather}
-                  ]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 166.
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-[] $\OML/cmm/m/it/10 Q[] []$ \OT1/ptm/m/it/10 (+20) Mixer-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-[] $\OML/cmm/m/it/10 Q[] []$ \OT1/ptm/m/it/10 (+20) Target-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-[] $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 ) []$ \OT1/ptm/m/it/10 (+20) Surprise-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
-[] $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s[]; u[]; ^^[[]\OT1/cmr/m/n/10 ) []$ \OT1/ptm/m/it/10 (+20) Target-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
-[] $\OML/cmm/m/it/10 E []
- []
-
-
-Package hyperref Warning: No autoref name for `algorithm' on input line 198.
-
-<emix.PNG, id=260, 327.2225pt x 238.39063pt>
-File: emix.PNG Graphic file (type png)
-<use emix.PNG>
-Package pdftex.def Info: emix.PNG  used on input line 201.
-(pdftex.def)             Requested size: 170.71588pt x 113.81145pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-[]\OT1/ptm/m/n/10 (-4) We
- []
-
-
-Overfull \hbox (3.2396pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) now
- []
-
-
-Overfull \hbox (3.20059pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) take
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+20) a
- []
-
-
-Overfull \hbox (10.20602pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) closer
- []
-
-
-Overfull \hbox (4.1483pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) look
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+20) at
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+20) the
- []
-
-
-Overfull \hbox (19.60367pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) surprise-
- []
-
-
-Overfull \hbox (9.5172pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) mixer
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+20) ap-
- []
-
-
-Overfull \hbox (6.54071pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) prox-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+20) i-
- []
-
-
-Overfull \hbox (3.2771pt too wide) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (-20) mat-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+19) ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-\OT1/ptm/m/n/10 (+20) the
- []
-
-[5 <c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/emix.PNG>]
-
-LaTeX Warning: Reference `fig:ablations' on page 6 undefined on input line 252.
-
-[6]
-
-LaTeX Warning: Reference `fig:ablations' on page 7 undefined on input line 254.
-
-
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 254.
-
-(c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl [7]
-Underfull \hbox (badness 10000) in paragraph at lines 19--24
-[]\OT1/ptm/m/n/9 (+20) Julian Schrit-twieser, Ioan-nis Antonoglou,
- []
-
-[8] [9]) [10] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux)
+{k:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux)
 Package rerunfilecheck Info: File `neurips_2020.out' has not changed.
-(rerunfilecheck)             Checksum: 191ED26CD9D7B0B6DD41FBC5583FE19D;851.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 1566C1005305268C5B7B4C0B90989AA9;914.
  ) 
 Here is how much of TeX's memory you used:
- 12774 strings out of 479916
- 196388 string characters out of 5886642
- 566617 words of memory out of 5000000
- 28706 multiletter control sequences out of 15000+600000
- 564007 words of font info for 257 fonts, out of 8000000 for 9000
+ 12112 strings out of 479916
+ 188652 string characters out of 5886642
+ 534453 words of memory out of 5000000
+ 28428 multiletter control sequences out of 15000+600000
+ 545389 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,14n,77p,2599b,829s stack positions out of 5000i,500n,10000p,200000b,80000s
-{k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (10 pages, 2250770 bytes).
+ 72i,9n,77p,309b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
+{k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (1 page, 46668 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 350 compressed objects within 4 object streams
- 99 named destinations out of 1000 (max. 500000)
- 23155 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 12409 words of extra memory for PDF output out of 14400 (max. 10000000)
 

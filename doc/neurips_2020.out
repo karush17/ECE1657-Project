@@ -1,13 +1,15 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{The Value Factorization Problem}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Preliminaries}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Surprise Minimization}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Overestimation Bias}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Energy-based Models}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Energy-based Surprise Minimization}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{The Surprise Minimization Objective}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Energy-based MIXer \(EMIX\)}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Experiments}{}% 10
-\BOOKMARK [2][-]{subsection.4.1}{Energy-based Surprise Minimization}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.2}{Ablation Study}{section.4}% 12
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 13
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Learning in Games}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Multi-Agent Learning}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Preliminaries}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Stochastic Markov Games}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Q-Learning}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Multi-Agent Learning}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Cooperation in Multi-Agent Learning}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{The Partial Observability Setting}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Learning Model-Free Behaviors}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Tackling Spurious Dynamics}{}% 12
+\BOOKMARK [1][-]{section.6}{Experiments}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{}{section.6}% 14
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 15
