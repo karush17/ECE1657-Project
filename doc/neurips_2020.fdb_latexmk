@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex neurips_2020"] 1603666668 "neurips_2020.aux" "neurips_2020.bbl" "neurips_2020" 1603666676
+["bibtex neurips_2020"] 1603667370 "neurips_2020.aux" "neurips_2020.bbl" "neurips_2020" 1603667438
   "k:/texlive/2020/texmf-dist/bibtex/bst/base/unsrt.bst" 1602112780 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "neurips_2020.aux" 1603666674 4391 bdd568b3154279856fc0f8477b80fb12 "pdflatex"
+  "neurips_2020.aux" 1603667437 4708 30c16feb74a1b6c3f9d9e9b4ab529194 "pdflatex"
   "sample.bib" 1603666629 20370 69881bd1934beea1f7bcdc3a590ee1af ""
   (generated)
   "neurips_2020.blg"
   "neurips_2020.bbl"
-["pdflatex"] 1603666672 "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.tex" "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" "neurips_2020" 1603666676
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux" 1603666674 4391 bdd568b3154279856fc0f8477b80fb12 ""
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.tex" 1603666670 9985 89b89bd42ee356dbe5afae8f0bb1242c ""
+["pdflatex"] 1603667435 "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.tex" "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" "neurips_2020" 1603667438
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux" 1603667437 4708 30c16feb74a1b6c3f9d9e9b4ab529194 ""
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.tex" 1603667434 11158 f605596fb53b218d26ac192d4358f732 ""
   "k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1602113245 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "k:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1602113504 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "k:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1602115408 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -26,6 +26,7 @@
   "k:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1602112628 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "k:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1602112628 940 228d6584342e91276bf566bcf9716b83 ""
   "k:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1602112918 768 1321e9409b4137d6fb428ac9dc956269 ""
+  "k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1602112628 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1602112628 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1602115408 44729 fea0975e20ec51c992338362f05f1146 ""
   "k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1602115408 46026 687528a208fbfc1f00832bb96cccebbb ""
@@ -124,15 +125,15 @@
   "k:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1602115890 5062763 7a53a10380656550343c994a10f7e0d4 ""
   "k:/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1602122502 2535209 4886ada57fdae792f73dace42a79ad61 ""
   "k:/texlive/2020/texmf.cnf" 1602115852 673 4ae7b2f49cee444c5343a45b5d0f169c ""
-  "neurips_2020.aux" 1603666674 4391 bdd568b3154279856fc0f8477b80fb12 "pdflatex"
-  "neurips_2020.bbl" 1603666669 8201 8be2d7a2f689c34566f108c6d09b24b1 "bibtex neurips_2020"
-  "neurips_2020.out" 1603666674 1068 f29baccf49a0b5165b379bd64539b9d8 "pdflatex"
+  "neurips_2020.aux" 1603667437 4708 30c16feb74a1b6c3f9d9e9b4ab529194 "pdflatex"
+  "neurips_2020.bbl" 1603667370 9310 35b0d03d58149279f59aa6bd441dc0e5 "bibtex neurips_2020"
+  "neurips_2020.out" 1603667437 1068 f29baccf49a0b5165b379bd64539b9d8 "pdflatex"
   "neurips_2020.sty" 1603661327 11174 6c59a6585b7f87548de336184eb55034 ""
-  "neurips_2020.tex" 1603666670 9985 89b89bd42ee356dbe5afae8f0bb1242c ""
+  "neurips_2020.tex" 1603667434 11158 f605596fb53b218d26ac192d4358f732 ""
   (generated)
-  "neurips_2020.pdf"
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf"
+  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.log"
   "neurips_2020.out"
   "neurips_2020.log"
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.log"
-  "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf"
+  "neurips_2020.pdf"
   "neurips_2020.aux"
