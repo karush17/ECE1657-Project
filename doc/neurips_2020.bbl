@@ -56,6 +56,17 @@ Oriol Vinyals, Igor Babuschkin, Wojciech Czarnecki, Michaël Mathieu, Andrew
   learning.
 \newblock {\em Nature}, 575, 11 2019.
 
+\bibitem{rl}
+Richard~S. Sutton and Andrew~G. Barto.
+\newblock {\em Reinforcement Learning: An Introduction}.
+\newblock 2018.
+
+\bibitem{ltc}
+Gon{\c{c}}alo Neto.
+\newblock From single-agent to multi-agent reinforcement learning: Foundational
+  concepts and methods.
+\newblock {\em Learning theory course}, 2005.
+
 \bibitem{cooperative}
 Liviu Panait and Sean Luke.
 \newblock Cooperative multi-agent learning: The state of the art.
@@ -73,11 +84,10 @@ Kaiqing Zhang, Zhuoran Yang, and Tamer Ba{\c{s}}ar.
   and algorithms.
 \newblock {\em arXiv preprint arXiv:1911.10635}, 2019.
 
-\bibitem{smirl}
-Glen Berseth, Daniel Geng, Coline Devin, Dinesh Jayaraman, Chelsea Finn, and
-  Sergey Levine.
-\newblock Smirl: Surprise minimizing rl in entropic environments.
-\newblock 2019.
+\bibitem{coma}
+Jakob Foerster, Gregory Farquhar, Triantafyllos Afouras, Nantas Nardelli, and
+  Shimon Whiteson.
+\newblock Counterfactual multi-agent policy gradients, 2017.
 
 \bibitem{mbrl}
 Lukasz Kaiser, Mohammad Babaeizadeh, Piotr Milos, Blazej Osinski, Roy~H
@@ -85,6 +95,12 @@ Lukasz Kaiser, Mohammad Babaeizadeh, Piotr Milos, Blazej Osinski, Roy~H
   Sergey Levine, Afroz Mohiuddin, Ryan Sepassi, George Tucker, and Henryk
   Michalewski.
 \newblock Model-based reinforcement learning for atari, 2019.
+
+\bibitem{smirl}
+Glen Berseth, Daniel Geng, Coline Devin, Dinesh Jayaraman, Chelsea Finn, and
+  Sergey Levine.
+\newblock Smirl: Surprise minimizing rl in entropic environments.
+\newblock 2019.
 
 \bibitem{surprise}
 Joshua Achiam and Shankar Sastry.

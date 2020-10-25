@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  25 OCT 2020 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  25 OCT 2020 17:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -630,18 +630,18 @@ Package rerunfilecheck Info: File `neurips_2020.out' has not changed.
 (rerunfilecheck)             Checksum: F29BACCF49A0B5165B379BD64539B9D8;1068.
  ) 
 Here is how much of TeX's memory you used:
- 12301 strings out of 479916
- 190639 string characters out of 5886642
- 549053 words of memory out of 5000000
- 28488 multiletter control sequences out of 15000+600000
- 553042 words of font info for 130 fonts, out of 8000000 for 9000
+ 12335 strings out of 479916
+ 190941 string characters out of 5886642
+ 550020 words of memory out of 5000000
+ 28498 multiletter control sequences out of 15000+600000
+ 553875 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,8n,77p,1200b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,8n,77p,1200b,689s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (3 pages, 69724 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (3 pages, 71094 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
  18569 words of extra memory for PDF output out of 20736 (max. 10000000)
 
