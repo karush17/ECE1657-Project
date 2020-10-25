@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  24 OCT 2020 15:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  25 OCT 2020 15:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -332,22 +332,22 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 ) (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -358,14 +358,14 @@ LaTeX Font Info:    ... okay on input line 26.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
-* v-part:(T,H,B)=(56.9055pt, 610.02708pt, 128.0374pt)
+* v-part:(T,H,B)=(28.45274pt, 695.38536pt, 71.13188pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
 * \textwidth=472.03123pt
-* \textheight=610.02708pt
+* \textheight=695.38536pt
 * \oddsidemargin=-1.1381pt
 * \evensidemargin=-1.1381pt
-* \topmargin=-15.36449pt
+* \topmargin=-43.81725pt
 * \headheight=0.0pt
 * \headsep=0.0pt
 * \topskip=10.0pt
@@ -385,7 +385,7 @@ LaTeX Font Info:    ... okay on input line 26.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 26.
+(lastpage)             ! on input line 28.
 (k:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count288
@@ -406,7 +406,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \c@lstlisting=\count294
-Package hyperref Info: Link coloring ON on input line 26.
+Package hyperref Info: Link coloring ON on input line 28.
  (k:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (k:/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -416,9 +416,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count295
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 28.
+LaTeX Info: Redefining \pageref on input line 28.
+LaTeX Info: Redefining \nameref on input line 28.
  (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.out) (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -437,13 +437,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  10048 strings out of 479916
  151906 string characters out of 5886642
- 475596 words of memory out of 5000000
+ 475597 words of memory out of 5000000
  26463 multiletter control sequences out of 15000+600000
  537250 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,5n,66p,1074b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,5n,66p,1084b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 <k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf" (1 page, 86468 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/proposal/main.pdf" (1 page, 86418 bytes).
 PDF statistics:
  57 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream

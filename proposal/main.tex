@@ -1,7 +1,7 @@
 
 \documentclass[10pt,letterpaper]{article}
 \usepackage{fullpage}
-\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage[top=1cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
 \usepackage{lastpage}
 \usepackage{enumerate}
@@ -21,6 +21,8 @@
     citecolor=blue
 }
 
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
 
 
 \begin{document}
@@ -37,13 +39,13 @@
 \end{center}
            % ################################### %
 
-Advances in Multi-Agent Reinforcement Learning (MARL) have led to the development of efficient agents capable of solving practical tasks \cite{overview}. A key aspect of MARL is cooperation \cite{cooperativemarl}, wherein agents must collaborate with each other to achieve complex objectives. The need for cooperative agents is further highlighted in the case of partially-observed settings wherein agents have access to limited observations from the environment.
+\noindent Advances in Multi-Agent Reinforcement Learning (MARL) have led to the development of efficient agents capable of solving practical tasks \cite{overview}. A key aspect of MARL is cooperation \cite{cooperativemarl}, wherein agents must collaborate with each other to achieve complex objectives. The need for cooperative agents is further highlighted in the case of partially-observed settings wherein agents have access to limited observations from the environment.
 
-The work aims to explore the cooperative setup of MARL under partial-observability from a Game Theoretic viewpoint \cite{book,egt}. The central objective of the project is to understand the behavior of agents in environments with large action spaces and spurious opponents. The work aims to achieve this objective by implementing and assessing state-of-the-art model-free Q-learning algorithms \cite{jakob} in MARL; namely QMIX \cite{qmix}, QMIX-SMiRL \cite{smirl}, Value Decomposition Networks (VDNs) \cite{vdn} and Independent Q-Learning (IQL) \cite{iql}. Algorithms will be simulated in SMAC's StarCraft II \cite{smac} benchmark which consists of partially-observable micromanagement scenarios with variable number of opponents and difficulty levels. Comparison between algorithms will be drawn on the basis of payoffs received from the environment, optimization of the cost function, exploration of agent's strategies and sample-efficient learning of the optimal strategy.
+\noindent The work aims to explore the cooperative setup of MARL under partial-observability from a Game Theoretic viewpoint \cite{book,egt}. The central objective of the project is to understand the behavior of agents in environments with large action spaces and spurious opponents. The work aims to achieve this objective by implementing and assessing state-of-the-art model-free Q-learning algorithms \cite{jakob} in MARL; namely QMIX \cite{qmix}, QMIX-SMiRL \cite{smirl}, Value Decomposition Networks (VDNs) \cite{vdn} and Independent Q-Learning (IQL) \cite{iql}. Algorithms will be simulated in SMAC's StarCraft II \cite{smac} benchmark which consists of partially-observable micromanagement scenarios with variable number of opponents and difficulty levels. Comparison between algorithms will be drawn on the basis of payoffs received from the environment, optimization of the cost function, exploration of agent's strategies and sample-efficient learning of the optimal strategy.
 
-While state-of-the-art model-free methods have proven to be successful in learning optimal strategies, these make use of a larger number of samples in comparison to model-based methods. The gap in data-efficiency arises as a result of the restricted access to dynamics of the environment. The project, in addition to its primary objectives, aims to bridge the gap of data-efficient learning by incorporating information about the dynamics in the cost function of model-free agents. Stochastic dynamics such as spurious states corresponding to surprise can be minimized by utilizing the common information across agents. 
+\noindent While state-of-the-art model-free methods have proven to be successful in learning optimal strategies, these make use of a larger number of samples in comparison to model-based methods. The gap in data-efficiency arises as a result of the restricted access to dynamics of the environment. The project, in addition to its primary objectives, aims to bridge the gap of data-efficient learning by incorporating information about the dynamics in the cost function of model-free agents. Stochastic dynamics such as spurious states corresponding to surprise can be minimized by utilizing the common information across agents. 
 
-Recent advances in MARL have focussed on cooperation between agents in a data-efficient manner. The project aims to deliver outcomes which would aid in better intuition about the current developments and their pivotal role in improving stochastic learning from a novel standpoint. 
+\noindent Recent advances in MARL have focussed on cooperation between agents in a data-efficient manner. The project aims to deliver outcomes which would aid in better intuition about the current developments and their pivotal role in improving stochastic learning from a novel standpoint. 
 
 \bibliographystyle{unsrt}
 \small{\bibliography{sample}}
