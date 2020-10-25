@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: neurips_2020.aux
+The style file: unsrt.bst
+Database file #1: sample.bib
+Warning--empty publisher in doubleqlearning
+Warning--empty journal in smirl
+Warning--empty publisher in rl
+Warning--empty journal in exploration
+Warning--empty publisher in metaexp
+Warning--empty journal in ziebartphd
+Warning--empty publisher in overview
+You've used 63 entries,
+            1791 wiz_defined-function locations,
+            717 strings with 15818 characters,
+and the built_in function-call counts, 12794 in all, are:
+= -- 786
+> -- 1068
+< -- 3
++ -- 380
+- -- 317
+* -- 801
+:= -- 2255
+add.period$ -- 182
+call.type$ -- 63
+change.case$ -- 60
+chr.to.int$ -- 0
+cite$ -- 70
+duplicate$ -- 592
+empty$ -- 1195
+format.name$ -- 317
+if$ -- 2749
+int.to.chr$ -- 0
+int.to.str$ -- 63
+missing$ -- 54
+newline$ -- 308
+num.names$ -- 63
+pop$ -- 310
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 242
+stack$ -- 0
+substring$ -- 47
+swap$ -- 104
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 7
+while$ -- 66
+width$ -- 65
+write$ -- 623
+(There were 7 warnings)
