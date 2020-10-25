@@ -57,7 +57,7 @@
 \newcustomtheorem{customthm}{Theorem}
 \newcustomtheorem{customlemma}{Lemma}
 
-\title{Cooperation in Multi-Agent Learning}
+\title{Cooperation in Multi-Agent Reinforcement Learning}
 
 % The \author macro works with any number of authors. There are two commands
 % used to separate the names and addresses of multiple authors: \And and \AND.
@@ -68,7 +68,7 @@
 % \AND instead of \And before the third author name.
 
 \author{
-  Karush Suri, Lacra Pavel\\
+  Karush Suri, Dian Gadjov, Lacra Pavel\\
    Department of Electrical \& Computer Engineering, University of Toronto, Canada.\\
   \texttt{karush.suri@mail.utoronto.ca}
 }
@@ -86,7 +86,9 @@ Advancements in Multi-Agent Reinforcement Learning (MARL) are motivated by coope
 \begin{multicols}{2}
 
 \section{Introduction}
-jdfvje
+Reinforcement Learning (RL) has seen tremendous growth in applications such as arcade games \cite{atari}, board games \cite{go, shogi}, robot control tasks \cite{ddpg, ppo} and lately, real-time games \cite{SC2}. The rise of RL has led to an increasing interest in the study of multi-agent systems \cite{maddpg, alphastar}, commonly known as Multi-Agent Reinforcement Learning (MARL). In the case of partially observable settings, MARL enables the learning of strategies from a GT perspective by utilizing cooperation across agents\cite{cooperative}. Agents collaborate with each other to optimize the cumulative payoffs by means of a single utility function which leads to optimal behavior \cite{gt,selective} in the long-horizon.
+
+Surprise minimization \cite{smirl} is a recent phenomenon observed in the case of single-agent RL methods which deals with environments consisting of spurious states. In the case of model-based RL \cite{mbrl}, surprise minimization is used as an effective planning tool in the agent's model \cite{smirl} whereas in the case of model-free RL, surprise minimization is witnessed as an intrinsic motivation \cite{surprise,surpmodeling} or generalization problem \cite{gen}. On the other hand, MARL does not account for surprise across agents as a result of which agents remain unaware of drastic changes in the environment \cite{role}. Thus, surprise minimization in the case of multi-agent settings requires attention from a critical standpoint.
 % High level content of GT and MARL
 % the problem and what you are doing to fix it
 
