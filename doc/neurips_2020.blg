@@ -3,7 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: neurips_2020.aux
 The style file: unsrt.bst
 Database file #1: sample.bib
-Warning--I didn't find a database entry for ""
 Warning--empty publisher in rl
 Warning--empty journal in smirl
 Warning--empty publisher in cnn
@@ -12,43 +11,43 @@ Warning--empty journal in exploration
 Warning--empty publisher in overview
 You've used 50 entries,
             1791 wiz_defined-function locations,
-            672 strings with 13562 characters,
-and the built_in function-call counts, 12144 in all, are:
-= -- 877
-> -- 864
-< -- 11
-+ -- 307
-- -- 257
-* -- 762
-:= -- 1975
-add.period$ -- 147
+            677 strings with 13447 characters,
+and the built_in function-call counts, 12190 in all, are:
+= -- 894
+> -- 855
+< -- 12
++ -- 304
+- -- 254
+* -- 769
+:= -- 1982
+add.period$ -- 148
 call.type$ -- 50
 change.case$ -- 47
 chr.to.int$ -- 0
 cite$ -- 56
-duplicate$ -- 578
-empty$ -- 1104
-format.name$ -- 257
-if$ -- 2704
+duplicate$ -- 580
+empty$ -- 1101
+format.name$ -- 254
+if$ -- 2713
 int.to.chr$ -- 0
 int.to.str$ -- 50
-missing$ -- 41
-newline$ -- 245
+missing$ -- 43
+newline$ -- 246
 num.names$ -- 52
-pop$ -- 248
+pop$ -- 240
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 323
+skip$ -- 324
 stack$ -- 0
-substring$ -- 354
+substring$ -- 373
 swap$ -- 181
-text.length$ -- 11
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 78
+while$ -- 80
 width$ -- 52
-write$ -- 506
-(There were 7 warnings)
+write$ -- 511
+(There were 6 warnings)

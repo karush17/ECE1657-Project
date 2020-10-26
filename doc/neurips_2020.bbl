@@ -128,10 +128,15 @@ Luis Macedo and Amilcar Cardoso.
   environments populated with entities.
 \newblock In {\em 2005 portuguese conference on artificial intelligence}, 2005.
 
-\bibitem{td3}
-Scott Fujimoto, Herke van Hoof, and David Meger.
-\newblock Addressing function approximation error in actor-critic methods,
-  2018.
+\bibitem{learningingames}
+Drew Fudenberg and David Levine.
+\newblock {\em The Theory of Learning in Games}, volume~1.
+\newblock The MIT Press, 1 edition, 1998.
+
+\bibitem{benaim}
+Michel Benaim and Morris~W Hirsch.
+\newblock Learning processes, mixed equilibria and dynamical systems.
+\newblock {\em Games and Economic Behavior}, 29:36--72, 1999.
 
 \bibitem{cnn}
 Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
@@ -259,13 +264,6 @@ Zipeng Fu, Qingqing Zhao, and Weinan Zhang.
 \newblock Reducing overestimation in value mixing for cooperative deep
   multi-agent reinforcement learning.
 \newblock {\em ICAART}, 2020.
-
-\bibitem{weightdouble}
-Yan Zheng, Zhaopeng Meng, Jianye Hao, and Zongzhang Zhang.
-\newblock Weighted double deep multiagent reinforcement learning in stochastic
-  cooperative environments.
-\newblock In {\em Pacific Rim international conference on artificial
-  intelligence}, 2018.
 
 \bibitem{wqmix}
 Tabish Rashid, Gregory Farquhar, Bei Peng, and Shimon Whiteson.
