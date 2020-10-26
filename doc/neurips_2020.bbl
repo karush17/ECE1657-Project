@@ -128,6 +128,52 @@ Luis Macedo and Amilcar Cardoso.
   environments populated with entities.
 \newblock In {\em 2005 portuguese conference on artificial intelligence}, 2005.
 
+\bibitem{td3}
+Scott Fujimoto, Herke van Hoof, and David Meger.
+\newblock Addressing function approximation error in actor-critic methods,
+  2018.
+
+\bibitem{cnn}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems 25}, pages
+  1097--1105. 2012.
+
+\bibitem{ale}
+Marc~G. Bellemare, Yavar Naddaf, Joel Veness, and Michael Bowling.
+\newblock The arcade learning environment: An evaluation platform for general
+  agents.
+\newblock {\em J. Artif. Int. Res.}, page 253–279, 2013.
+
+\bibitem{doubleqlearning}
+Hado~V. Hasselt.
+\newblock Double q-learning.
+\newblock In {\em Advances in Neural Information Processing Systems 23}. 2010.
+
+\bibitem{exploration}
+Sebastian~B Thrun.
+\newblock Efficient exploration in reinforcement learning.
+\newblock 1992.
+
+\bibitem{deepdoubleqlearning}
+Hado~van Hasselt, Arthur Guez, and David Silver.
+\newblock Deep reinforcement learning with double q-learning.
+\newblock In {\em Proceedings of the Thirtieth AAAI Conference on Artificial
+  Intelligence}, 2016.
+
+\bibitem{a3c}
+Volodymyr Mnih, Adria~Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy
+  Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu.
+\newblock Asynchronous methods for deep reinforcement learning.
+\newblock In {\em International conference on machine learning}, 2016.
+
+\bibitem{haarnoja}
+Tuomas Haarnoja.
+\newblock {\em Acquiring Diverse Robot Skills via Maximum Entropy Deep
+  Reinforcement Learning}.
+\newblock PhD thesis, UC Berkeley, 2018.
+
 \bibitem{vdn}
 Peter Sunehag, Guy Lever, Audrunas Gruslys, Wojciech~Marian Czarnecki, Vinicius
   Zambaldi, Max Jaderberg, Marc Lanctot, Nicolas Sonnerat, Joel~Z. Leibo, Karl
@@ -231,12 +277,6 @@ Thanh~Thi Nguyen, Ngoc~Duy Nguyen, and Saeid Nahavandi.
 \newblock Deep reinforcement learning for multiagent systems: A review of
   challenges, solutions, and applications.
 \newblock {\em IEEE transactions on cybernetics}, 2020.
-
-\bibitem{a3c}
-Volodymyr Mnih, Adria~Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy
-  Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu.
-\newblock Asynchronous methods for deep reinforcement learning.
-\newblock In {\em International conference on machine learning}, 2016.
 
 \bibitem{rainbow}
 Matteo Hessel, Joseph Modayil, Hado Van~Hasselt, Tom Schaul, Georg Ostrovski,
