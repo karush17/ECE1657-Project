@@ -262,6 +262,11 @@ Wei Ren, Randal~W Beard, and Ella~M Atkins.
 \newblock In {\em Proceedings of the 2005, American Control Conference, 2005.},
   2005.
 
+\bibitem{overview}
+Lucian Bu{\c{s}}oniu, Robert Babu{\v{s}}ka, and Bart De~Schutter.
+\newblock Multi-agent reinforcement learning: An overview.
+\newblock In {\em Innovations in multi-agent systems and applications-1}. 2010.
+
 \bibitem{nash}
 John~F. Nash.
 \newblock Equilibrium points in n-person games.
