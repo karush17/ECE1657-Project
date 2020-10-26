@@ -262,4 +262,9 @@ Wei Ren, Randal~W Beard, and Ella~M Atkins.
 \newblock In {\em Proceedings of the 2005, American Control Conference, 2005.},
   2005.
 
+\bibitem{nash}
+John~F. Nash.
+\newblock Equilibrium points in n-person games.
+\newblock {\em Proceedings of the National Academy of Sciences}, 36(1), 1950.
+
 \end{thebibliography}
