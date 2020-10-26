@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  26 OCT 2020 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  26 OCT 2020 16:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -656,6 +656,12 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 99
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 123.
+
+
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 123.
+
+
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 126.
 
 
@@ -687,15 +693,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--24
 
 [3] [4]) [5] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
 Here is how much of TeX's memory you used:
- 13535 strings out of 479916
- 208120 string characters out of 5886642
- 575226 words of memory out of 5000000
+ 13538 strings out of 479916
+ 208144 string characters out of 5886642
+ 574402 words of memory out of 5000000
  29564 multiletter control sequences out of 15000+600000
- 558333 words of font info for 205 fonts, out of 8000000 for 9000
+ 558452 words of font info for 207 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,77p,1602b,758s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,77p,1602b,734s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (5 pages, 170669 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (5 pages, 172713 bytes).
 PDF statistics:
  270 PDF objects out of 1000 (max. 8388607)
  246 compressed objects within 3 object streams
