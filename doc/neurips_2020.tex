@@ -126,7 +126,19 @@ Despite the recent success of RL \cite{a3c,rainbow} MARL agents suffer from spur
 We review the MARL setup. The problem is modeled as a Partially Observable Stochastic Markov Game \cite{rl} defined by the tuple $(\mathcal{S},\mathcal{A},r,N,P,Z,O,\gamma)$ where the state space $\mathcal{S}$ and action space $\mathcal{A}$ are discrete, $r: \mathcal{S} \times \mathcal{A} \rightarrow [r_{min},r_{max}]$ presents the payoff observed by agents $a \in N$ where $N$ is the set of all agents, $P: \mathcal{S} \times \mathcal{S} \times \mathcal{A} \rightarrow [0,\infty)$ presents the unknown transition model consisting of the transition probability to the next state $s\textquotesingle \in \mathcal{S}$ given the current state $s \in \mathcal{S}$ and joint action $u \in \mathcal{A}$ where $u = \{u_{t}^{(1)},u_{t}^{(2)}...u_{t}^{(N)}\}$ at time step $t$ and $\gamma$ is the discount factor. We consider a partially observable setting in which each agent $n$ draws individual observations $z \in Z$ according to the observation function $O(s,u): \mathcal{S} \times \mathcal{A} \rightarrow Z$. We consider a joint policy $\pi_{\theta}({u|s})$ as a function of model parameters $\theta$. Standard RL defines the agent's objective to maximize the expected discounted payoff $\mathbb{E}_{\pi_{\theta}}[\sum_{t=0}^{T}\gamma^{t}r(s_{t},u_{t})]$ as a function of the parameters $\theta$. 
 
 \subsection{Q-Learning}
-We review the Q-learning setup in MARL. The action-value function for an agent is represented as $Q(u,s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u=u_{t}]$ which is the expected sum of payoffs obtained in state $s$ upon performing action $u$ by following the policy $\pi_{\theta}$. We denote the optimal policy $\pi_{\theta}^{*}$ such that $Q(u,s;\theta^{*}) \geq Q(u,s;\theta) \forall s \in S, u \in A$. In the case of multiple agents, the joint optimal policy can be expressed as the Nash Equilibrium \cite{nash} of the Stochastic Markov Game as $\pi^{*} = (\pi^{1,*},\pi^{2,*}, ...\pi^{N,*})$ such that $Q(u^{a},s;\theta^{*}) \geq Q(u^{a},s;\theta) \forall s \in S, u \in A, a \in N$. Q-Learning is an off-policy, model-free algorithm suitable for continuous and episodic tasks. The algorithm uses semi-gradient descent to minimize the Temporal Difference (TD) error: $\mathbb{L(\theta)} = \underset{b \sim R}{\mathbb{E}}[(y - Q(u,s;\theta))^{2}]$ where $y = r + \gamma \underset{u^{\textquotesingle}\in A}{\max} Q(u^{\textquotesingle},s^{\textquotesingle};\theta^{-})$ is the TD target consisting of $\theta^{-}$ as the target parameters and $b$ is the batch sampled from memory $R$.
+We review the Q-learning setup in MARL. The action-value function, which is the expected sum of payoffs obtained in state $s$ upon performing action $u$ by following the policy $\pi_{\theta}$, for an agent is represented in \autoref{eq:action-value}.
+\begin{gather}
+  Q(u,s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u=u_{t}] \label{eq:action-value}
+\end{gather}
+We denote the optimal policy $\pi_{\theta}^{*}$ such that $Q(u,s;\theta^{*}) \geq Q(u,s;\theta) \forall s \in S, u \in A$. In the case of multiple agents, the joint optimal policy can be expressed as the Nash Equilibrium \cite{nash} of the Stochastic Markov Game as expressed in \autoref{eq:ne}. 
+\begin{multline}
+  \pi^{*} = (\pi^{1,*},\pi^{2,*}, ...\pi^{N,*})\\ s.t.\quad Q(u^{a},s;\theta^{*}) \geq Q(u^{a},s;\theta)\\ \forall s \in S, u \in A, a \in N \label{eq:ne}  
+\end{multline}
+Q-Learning is an off-policy, model-free algorithm suitable for continuous and episodic tasks. The algorithm uses semi-gradient descent to minimize the Temporal Difference (TD) error expressed in \autoref{eq:td}.
+\begin{gather}
+  \mathbb{L(\theta)} = \underset{b \sim R}{\mathbb{E}}[(y - Q(u,s;\theta))^{2}] \label{eq:td}
+\end{gather}
+where $y = r + \gamma \underset{u^{\textquotesingle}\in A}{\max} Q(u^{\textquotesingle},s^{\textquotesingle};\theta^{-})$ is the TD target consisting of $\theta^{-}$ as the target parameters and $b$ is the batch sampled from memory $R$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
