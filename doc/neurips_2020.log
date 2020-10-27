@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  26 OCT 2020 17:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  26 OCT 2020 21:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -693,15 +693,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--24
 
 [4] [5]) [6] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
 Here is how much of TeX's memory you used:
- 13580 strings out of 479916
- 208776 string characters out of 5886642
- 578165 words of memory out of 5000000
+ 13586 strings out of 479916
+ 208830 string characters out of 5886642
+ 578201 words of memory out of 5000000
  29588 multiletter control sequences out of 15000+600000
- 558973 words of font info for 213 fonts, out of 8000000 for 9000
+ 559211 words of font info for 217 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,11n,77p,1936b,792s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (6 pages, 178338 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (6 pages, 178350 bytes).
 PDF statistics:
  312 PDF objects out of 1000 (max. 8388607)
  287 compressed objects within 3 object streams
