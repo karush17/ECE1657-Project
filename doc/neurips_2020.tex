@@ -139,7 +139,7 @@ Q-Learning is an off-policy, model-free algorithm suitable for continuous and ep
 \begin{gather}
   \mathbb{L(\theta)} = \underset{b \sim R}{\mathbb{E}}[(y - Q(u,s;\theta))^{2}] \label{eq:td}
 \end{gather}
-Here $y = r + \gamma \underset{u^{\textquotesingle}\in A}{\max} Q(u^{\textquotesingle},s^{\textquotesingle};\theta^{-})$ is the TD target consisting of $\theta^{-}$ as the target parameters and $b$ is the batch of tuples $(s,u,r,s^{'})$ sampled from memory $R$.
+Here $y = r + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-})$ is the TD target consisting of $\theta^{-}$ as the target parameters and $b$ is the batch of tuples $(s,u,r,s_{t+1})$ sampled from memory $R$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -163,7 +163,12 @@ Learning model-free behaviors can be assessed from by making use of state-of-the
 We assess 4 Q-learning agents from the perspective of multi-agent learning, namely Independent Q-Learning (IQL) \cite{iql}, Value Decomposition Networks (VDNs), QMIX \cite{qmix} and QMIX with Surprise Minimization for RL (QMIX-SMiRL) \cite{smirl}. Corresponding to each agent we retrieve the cost function $J(\theta)$ by establishing links between the method and standard Q-learning. Following the formulation of the cost function, a mathematical analysis of Q-values is carried out which forms the basis for empirical evaluation of multiple agents. 
 
 \subsection{IQL}
-A natural way to model a multi-agent system is to define a cost function $J_{i}(\theta)$ for each agent $i \in N$. The agent $i$ is then allowed to minimize $J_{i}(\theta)$ in order to optimize its expected payoffs $Q_{i}(u^{(i)},s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u^{(i)}=u^{(i)}_{t}]$. This form of the reward maximization is directly based on the standard Q-learning as exprresed in \cite{eq:action-value}. Each agent maintains its set of Q-values which are directly affected only by the agent's actions $u^{(i)}_{t}$ in a given state $s_{t}$. 
+A natural way to model a multi-agent system is to define a cost function $L_{i}(\theta)$ for each agent $i \in N$. The agent $i$ is then allowed to minimize $L_{i}(\theta)$ in order to optimize its expected payoffs $Q_{i}(u^{(i)},s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u^{(i)}=u^{(i)}_{t}]$. This form of the reward maximization is directly based on the standard Q-learning as exprresed in \autoref{eq:action-value} \cite{iql}. Each agent maintains its set of Q-values which are directly optimized only by the agent's actions $u^{(i)}_{t}$ in a given state $s_{t}$. 
+
+Q-learning makes use of the TD error as expressed in \autoref{eq:td}. TD error serves as a practical choice for multi-agent learning due to its long-horizon suitabiity. The objective makes use of discounted bootstrapped estimates to prevent the agent from exhibiting short-sighted behavior. Additionally, the gradient of the TD error is computationally tractable in comparison to other policy-based methods \cite{rl} which require likelihood ratio gradients in learning. Thus, TD error is utilized to formulate the objective for IQL. Since each agent exhibits individual behavior and consists of its own unique policy $\pi^{i}(a_{t}|s_{t})$ governed by Q-values $Q_{i}(u^{(i)},s;\theta)$, the TD error corresponding to this agent can be expressed as in \autoref{eq:iql}.
+\begin{gather}
+  L_{i}(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u,s;\theta))^{2}] \label{eq:iql}
+\end{gather}
 
 
 \subsection{VDN}
