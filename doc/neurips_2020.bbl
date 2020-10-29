@@ -310,4 +310,10 @@ John~F. Nash.
 \newblock Equilibrium points in n-person games.
 \newblock {\em Proceedings of the National Academy of Sciences}, 36(1), 1950.
 
+\bibitem{smac}
+Mikayel Samvelyan, Tabish Rashid, Christian~Schroeder de~Witt, Gregory
+  Farquhar, Nantas Nardelli, Tim G.~J. Rudner, Chia-Man Hung, Philip H.~S.
+  Torr, Jakob Foerster, and Shimon Whiteson.
+\newblock The starcraft multi-agent challenge, 2019.
+
 \end{thebibliography}

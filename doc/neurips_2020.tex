@@ -155,7 +155,7 @@ Upon reaching state $s_{t+1}$ the agent observes $z \in Z$ with probability $O(z
 \begin{gather}
   b_{t}(s_{t}) = \eta O(z|s_{t},a_{t})\sum_{s\ in \mathcal{S}}p(s_{t+1}|s_{t},a_{t})b_{t}(s_{t}) \label{eq:beliefupdate}
 \end{gather}
-We select StarCraft II scenarios particularly for two reasons. Firstly, micromanagement scenarios consist of a larger number of agents with different action spaces. This requires a greater deal of coordination. Lastly, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. Irrespective of the time evolution of an episode, environment dynamics of each scenario change rapidly as the agents need to respond to enemy's behavior. 
+Assessing multi-agent behavior in partially-observable settings requires a benchmark which can accurately model the stochastic dynamics of real-world systems. We select StarCraft II \cite{smac} scenarios particularly for two reasons. Firstly, micromanagement scenarios consist of a larger number of agents with different action spaces. This requires a greater deal of coordination. Lastly, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. Irrespective of the time evolution of an episode, environment dynamics of each scenario change rapidly as the agents need to respond to enemy's behavior. 
 
 \subsection{Learning Model-Free Behaviors}
 % expand out each algorithm with its details
@@ -167,6 +167,9 @@ We select StarCraft II scenarios particularly for two reasons. Firstly, microman
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tackling Spurious Dynamics}
+In this section we introduce the novel objective for surprise minimization. The motivation behind surprise minimization in multi-agent learning stems from spurious states leading to estimation biases among agents in the case of partially-observed settings. The proposed objective aims to address these challenges by making use of an energy-based scheme which takes into account observations of each agent in the multi-agent system. 
+
+
 % novelty comes here, talk about surprise 
 % talk about model-based and model-free methods
 % highlght the math- ATLEAST 2 NOVEL CONTRIBUTIONS!!
