@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  29 OCT 2020 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  29 OCT 2020 16:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -548,14 +548,14 @@ LaTeX Font Info:    ... okay on input line 79.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(108.405pt, 397.48499pt, 108.40501pt)
+* h-part:(L,W,R)=(18.0675pt, 578.15999pt, 18.0675pt)
 * v-part:(T,H,B)=(72.26999pt, 650.43pt, 72.27pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=397.48499pt
+* \textwidth=578.15999pt
 * \textheight=650.43pt
-* \oddsidemargin=36.13501pt
-* \evensidemargin=36.13501pt
+* \oddsidemargin=-54.20248pt
+* \evensidemargin=-54.20248pt
 * \topmargin=-37.0pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -647,28 +647,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [1
-
-
-{k:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 99.
  (k:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
+) [1
+
+
+{k:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 124.
 
 
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 124.
+
+
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 127.
+
+
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 127.
 
 [2]
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 127.
-
-
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 127.
-
-
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 142.
 
 
@@ -686,52 +685,27 @@ LaTeX Warning: Command \textquotesingle invalid in math mode on input line 142.
 
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 142.
 
-[3]
 
 Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 178.
 
+[3]
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-[][]\OT1/ptm/b/n/10 Theorem 1. []\OT1/ptm/m/it/10 (+20) Given a sur-prise value
- []
+Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 214.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-\OT1/ptm/m/it/10 (+20) func-tion $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 N$\OT1/ptm/m/it/10 (+20) , the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-\OT1/ptm/m/it/10 (+20) en-ergy op-er-a-tor $\OMS/cmsy/m/n/10 T\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 ) =
- []
-
-
-Overfull \hbox (25.31607pt too wide) detected at line 193
- []$[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^L [] [] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; s\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ))[]]$ []  
- []
-
-
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 197.
-
-[4] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 19--24
-[]\OT1/ptm/m/n/9 (+20) Julian Schrit-twieser, Ioan-nis Antonoglou,
- []
-
-[5] [6]) [7] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
+(c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl [4] [5]) [6] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
 Here is how much of TeX's memory you used:
- 13658 strings out of 479916
- 209612 string characters out of 5886642
- 580571 words of memory out of 5000000
- 29610 multiletter control sequences out of 15000+600000
- 562894 words of font info for 242 fonts, out of 8000000 for 9000
+ 13664 strings out of 479916
+ 209672 string characters out of 5886642
+ 593428 words of memory out of 5000000
+ 29611 multiletter control sequences out of 15000+600000
+ 562883 words of font info for 245 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,77p,1936b,784s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,77p,1936b,782s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (7 pages, 193400 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (6 pages, 195527 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 92 named destinations out of 1000 (max. 500000)
+ 341 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
+ 93 named destinations out of 1000 (max. 500000)
  23177 words of extra memory for PDF output out of 24883 (max. 10000000)
 

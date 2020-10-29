@@ -179,25 +179,60 @@ Our choice of the energy operator is based on its unique mathematical properties
 \begin{customthm}{1}\label{one}
 Given a surprise value function $V^{a}_{surp}(s,u,\sigma) \forall a \in N$, the energy operator $\mathcal{T}V^{a}_{surp}(s,u,\sigma)=\log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}$ forms a contraction on $V^{a}_{surp}(s,u,\sigma)$. 
 \end{customthm}
+\begin{proof}
+  We first define a norm on surprise values $||V_{1} - V_{2}|| \equiv \underset{s,u,\sigma}{max}|V_{1}(s,u,\sigma) - V_{2}(s,u,\sigma)|$. Suppose $\epsilon = ||V_{1} - V_{2}||$,
+  \begin{gather}
+      \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \leq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma) + \epsilon)} \nonumber \\
+      = \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \leq \log \exp{(\epsilon)} \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \leq \epsilon + \log \sum_{a=1}^{N} \exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))} - \log \sum_{a=1}^{N} \exp{(V_{2}(s,u,\sigma))} \leq ||V_{1} - V_{2}|| \label{eq:case1}
+  \end{gather}
+  Similarly, using $\epsilon$ with $\log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))}$,
+  \begin{gather}
+      \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma) + \epsilon)} \geq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \log \exp{(\epsilon)}\sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \geq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \epsilon + \log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))} \geq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = ||V_{1} - V_{2}|| \geq \log \sum_{a=1}^{N} \exp{(V_{2}(s,u,\sigma))} - \log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))} \label{eq:case2}
+  \end{gather}
+  Results in \autoref{eq:case1} and \autoref{eq:case2} prove that the energy operation is a contraction. 
+  \end{proof}  
 The energy-based surprise minimization objective can then be formulated by simply adding the approximated energy-based surprise to the initial Bellman objective \cite{rl} of QMIX as expressed below.
-\begin{multline}
-  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(y - (Q(u,s;\theta)\\ + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}))^{2}] \nonumber
-\end{multline}
+\begin{gather}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(y - (Q(u,s;\theta) + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}))^{2}] \nonumber
+\end{gather}
 where,
-\begin{multline}
-  y = r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}
-\end{multline}
+\begin{gather}
+  y = r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-}) + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}
+\end{gather}
 This leads to the formulation of the objective,
 \begin{multline}
     L(\theta )= \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta \log \frac{\sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}}{\sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}} - Q(u,s;\theta))^{2}]
 \end{multline}
-\begin{multline}
-  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta E - Q(u,s;\theta))^{2}] \label{eq:3}
-\end{multline}
+\begin{gather}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-}) + \beta E - Q(u,s;\theta))^{2}] \label{eq:3}
+\end{gather}
 Here, $E$ is defined as the surprise ratio with $\beta$ as a temperature parameter and $\sigma^{'}$ as the deviation among next states in the batch. The surprise value function is approximated by a universal function approximator (in our case a neural network) with its parameters as $\phi$. $V_{a}(s^{'},u^{'},\sigma^{'})$ is expressed as the negative free energy and $\sum_{a=1}^{N} \exp{(V_{a}(s,u,\sigma))}$ the partition function. Alternatively, $V_{a}(s,u,\sigma)$ can be formulated as the negative free energy with $\sum_{a=1}^{N} \exp{(V_{a}(s^{'},u^{'},\sigma^{'}))}$ as the partition function. The objective incorporates the minimization of surprise across all agents as minimizing the energy in spurious states. Such a formulation of surprise acts as intrinsic motivation \cite{curiosity} and at the same time provides robustness to multi-agent behavior. Furthermore, the energy formulation in the form of energy ratio $E$ is a suitable choice as it guarantees convergence to minimum surprise at optimal policy $\pi^{*}$. This is formally expressed in Theorem \autoref{two}.
 \begin{customthm}{2}\label{two}
 Upon agent's convergence to an optimal policy $\pi^{*}$, total energy of $\pi^{*}$, expressed by $E^{*}$ will reach a thermal equilibrium consisting of minimum surprise among consecutive states $s$ and $s^{'}$.
 \end{customthm}
+\begin{proof}
+  We begin by initializing a set of $M$ policies $\{\pi_{1},\pi_{2}...,\pi_{M}\}$ having energy ratios $\{E_{1},E_{2}...,E_{M}\}$. Consider a policy $\pi_{1}$ with surprise value function $V_{1}$. $E_{1}$ can then be expressed as
+  \begin{gather}
+      E_{1} = \log [\frac{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s^{'},u^{'},\sigma^{'}))}}{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}] \nonumber
+  \end{gather}
+  Assuming a constant surprise between $s$ and $s^{'}$, we can express $V_{1}^{a}(s^{'},u^{'},\sigma^{'}) = V_{1}^{a}(s,u,\sigma) + \zeta_{1}$ where $\zeta_{1}$ is a constant. Using this expression in $E_{1}$ we get,
+  \begin{gather}
+      E_{1} = \log [\frac{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma) + \zeta_{1}})}{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}] \nonumber \\
+      E_{1} = \log [\frac{\exp{(\zeta_{1})}\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}] \nonumber \\    
+      E_{1} = \zeta_{1} \nonumber        
+  \end{gather}
+  Similarly, $E_{2}=\zeta_{2}$,$E_{3}=\zeta_{3}$...,$E_{M}=\zeta_{M}$. Thus, the energy residing in policy $\pi$ is proportional to the surprise between consecutive states $s$ and $s^{'}$. Clearly, an optimal policy $\pi^{*}$ is the one with minimum surprise. Mathematically,
+  \begin{gather}
+      \pi^{*} \geq \pi_{1},\pi_{2}...,\pi_{M} \implies \zeta^{*} \leq \zeta_{1},\zeta_{2}...,\zeta_{M} \nonumber \\
+      = \pi^{*} \geq \pi_{1},\pi_{2}...,\pi_{M} \implies E^{*} \leq E_{1},E_{2}...,E_{M} \nonumber
+  \end{gather}
+  Thus, proving that the optimal policy consists of minimum surprise at thermal equilibrium. 
+\end{proof}
 
 
 
