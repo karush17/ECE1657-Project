@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  29 OCT 2020 15:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  29 OCT 2020 16:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -686,25 +686,52 @@ LaTeX Warning: Command \textquotesingle invalid in math mode on input line 142.
 
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 142.
 
-[3] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl
+[3]
+
+Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 178.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+[][]\OT1/ptm/b/n/10 Theorem 1. []\OT1/ptm/m/it/10 (+20) Given a sur-prise value
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+\OT1/ptm/m/it/10 (+20) func-tion $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 N$\OT1/ptm/m/it/10 (+20) , the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+\OT1/ptm/m/it/10 (+20) en-ergy op-er-a-tor $\OMS/cmsy/m/n/10 T\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; u; ^^[\OT1/cmr/m/n/10 ) =
+ []
+
+
+Overfull \hbox (25.31607pt too wide) detected at line 193
+ []$[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^L [] [] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; s\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ))[]]$ []  
+ []
+
+
+Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 197.
+
+[4] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 19--24
 []\OT1/ptm/m/n/9 (+20) Julian Schrit-twieser, Ioan-nis Antonoglou,
  []
 
-[4] [5]) [6] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
+[5] [6]) [7] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
 Here is how much of TeX's memory you used:
- 13597 strings out of 479916
- 208951 string characters out of 5886642
- 578335 words of memory out of 5000000
- 29593 multiletter control sequences out of 15000+600000
- 559330 words of font info for 219 fonts, out of 8000000 for 9000
+ 13658 strings out of 479916
+ 209612 string characters out of 5886642
+ 580571 words of memory out of 5000000
+ 29610 multiletter control sequences out of 15000+600000
+ 562894 words of font info for 242 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,77p,1936b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,77p,1936b,784s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (6 pages, 183902 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (7 pages, 193400 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 82 named destinations out of 1000 (max. 500000)
- 19081 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 23177 words of extra memory for PDF output out of 24883 (max. 10000000)
 

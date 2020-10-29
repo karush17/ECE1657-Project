@@ -169,11 +169,36 @@ Assessing multi-agent behavior in partially-observable settings requires a bench
 \section{Tackling Spurious Dynamics}
 In this section we introduce the novel objective for surprise minimization. The motivation behind surprise minimization in multi-agent learning stems from spurious states leading to estimation biases among agents in the case of partially-observed settings. The proposed objective aims to address these challenges by making use of an energy-based scheme which takes into account observations of each agent in the multi-agent system. 
 
+Firstly, we formulate the energy-based objective consisting of surprise as a function of states $s$, joint actions $u$ and deviation $\sigma$ within states for each agent $a$. We call this function as the surprise value function $V_{surp}^{a}(s,u,\sigma)$ which serves as a mapping from agent and environment dynamics to surprise. We then define an energy operator presented in \autoref{eq:2} which sums the free energy across all agents. 
+\begin{gather}
+    \mathcal{T}V^{a}_{surp}(s,u,\sigma) = \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))} \label{eq:2}
+\end{gather}
+We make use of the Mellowmax operator \cite{mellowmax} as our energy operator. The energy operator is similar to the SQL energy formulation \cite{sql} where the energy across different actions is evaluated. In our case, inference is carried out across all agents with actions as prior variables. However, in the special case of using an EBM as a $Q$-function, the EMIX objective reduces to the SQL objective (details in the supplementary material). 
 
-% novelty comes here, talk about surprise 
-% talk about model-based and model-free methods
-% highlght the math- ATLEAST 2 NOVEL CONTRIBUTIONS!!
-% do no dive too much into RL, think from a GT perspective
+Our choice of the energy operator is based on its unique mathematical properties which result in better convergence. Of these properties, the most useful result is that the energy operator forms a contraction on the surprise value function indicating a guaranteed minimization of surprise within agents. This is formally stated in Theorem \autoref{one}. % refer here
+\begin{customthm}{1}\label{one}
+Given a surprise value function $V^{a}_{surp}(s,u,\sigma) \forall a \in N$, the energy operator $\mathcal{T}V^{a}_{surp}(s,u,\sigma)=\log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}$ forms a contraction on $V^{a}_{surp}(s,u,\sigma)$. 
+\end{customthm}
+The energy-based surprise minimization objective can then be formulated by simply adding the approximated energy-based surprise to the initial Bellman objective \cite{rl} of QMIX as expressed below.
+\begin{multline}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(y - (Q(u,s;\theta)\\ + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}))^{2}] \nonumber
+\end{multline}
+where,
+\begin{multline}
+  y = r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}
+\end{multline}
+This leads to the formulation of the objective,
+\begin{multline}
+    L(\theta )= \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta \log \frac{\sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}}{\sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}} - Q(u,s;\theta))^{2}]
+\end{multline}
+\begin{multline}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta E - Q(u,s;\theta))^{2}] \label{eq:3}
+\end{multline}
+Here, $E$ is defined as the surprise ratio with $\beta$ as a temperature parameter and $\sigma^{'}$ as the deviation among next states in the batch. The surprise value function is approximated by a universal function approximator (in our case a neural network) with its parameters as $\phi$. $V_{a}(s^{'},u^{'},\sigma^{'})$ is expressed as the negative free energy and $\sum_{a=1}^{N} \exp{(V_{a}(s,u,\sigma))}$ the partition function. Alternatively, $V_{a}(s,u,\sigma)$ can be formulated as the negative free energy with $\sum_{a=1}^{N} \exp{(V_{a}(s^{'},u^{'},\sigma^{'}))}$ as the partition function. The objective incorporates the minimization of surprise across all agents as minimizing the energy in spurious states. Such a formulation of surprise acts as intrinsic motivation \cite{curiosity} and at the same time provides robustness to multi-agent behavior. Furthermore, the energy formulation in the form of energy ratio $E$ is a suitable choice as it guarantees convergence to minimum surprise at optimal policy $\pi^{*}$. This is formally expressed in Theorem \autoref{two}.
+\begin{customthm}{2}\label{two}
+Upon agent's convergence to an optimal policy $\pi^{*}$, total energy of $\pi^{*}$, expressed by $E^{*}$ will reach a thermal equilibrium consisting of minimum surprise among consecutive states $s$ and $s^{'}$.
+\end{customthm}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

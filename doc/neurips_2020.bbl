@@ -316,4 +316,20 @@ Mikayel Samvelyan, Tabish Rashid, Christian~Schroeder de~Witt, Gregory
   Torr, Jakob Foerster, and Shimon Whiteson.
 \newblock The starcraft multi-agent challenge, 2019.
 
+\bibitem{mellowmax}
+Kavosh Asadi and Michael~L Littman.
+\newblock An alternative softmax operator for reinforcement learning.
+\newblock In {\em International Conference on Machine Learning}, 2017.
+
+\bibitem{sql}
+Tuomas Haarnoja, Haoran Tang, Pieter Abbeel, and Sergey Levine.
+\newblock Reinforcement learning with deep energy-based policies.
+\newblock {\em arXiv preprint arXiv:1702.08165}, 2017.
+
+\bibitem{curiosity}
+Yuri Burda, Harri Edwards, Deepak Pathak, Amos Storkey, Trevor Darrell, and
+  Alexei~A. Efros.
+\newblock Large-scale study of curiosity-driven learning.
+\newblock In {\em ICLR}, 2019.
+
 \end{thebibliography}
