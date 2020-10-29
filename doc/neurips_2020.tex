@@ -151,7 +151,10 @@ Assessing an agent's actions with unknown and spurious dynamics requires a parti
 \begin{gather}
   b_{t+1} = \tau(b_{t},a_{t},z_{t}) \label{eq:belief}
 \end{gather}
-Upon reaching state $s_{t+1}$ the agent observes $z \in Z$ with probability $O(z|s_{t},a_{t})$. Since the belief $b$ is a probability distribution over the state space $\mathcal{S}$, $b(s_{t})$ denotes the probability that the environment is in state $s_{t}$.
+Upon reaching state $s_{t+1}$ the agent observes $z \in Z$ with probability $O(z|s_{t},a_{t})$. Since the belief $b$ is a probability distribution over the state space $\mathcal{S}$, $b(s_{t})$ denotes the probability that the environment is in state $s_{t}$. Thus, the updated belief can be expressed as in \autoref{eq:beliefupdate} where $\eta$ is a normalizing constant and $p(s_{t+1}|s_{t},a_{t})$ is the transition probability from state $s_{t}$ to state $s_{t+1}$ upon performing action $a_{t}$.
+\begin{gather}
+  b_{t}(s_{t}) = \eta O(z|s_{t},a_{t})\sum_{s\ in \mathcal{S}}p(s_{t+1}|s_{t},a_{t})b_{t}(s_{t}) \label{eq:beliefupdate}
+\end{gather}
 We select StarCraft II scenarios particularly for two reasons. Firstly, micromanagement scenarios consist of a larger number of agents with different action spaces. This requires a greater deal of coordination. Lastly, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. Irrespective of the time evolution of an episode, environment dynamics of each scenario change rapidly as the agents need to respond to enemy's behavior. 
 
 \subsection{Learning Model-Free Behaviors}
