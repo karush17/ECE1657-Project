@@ -158,11 +158,19 @@ Upon reaching state $s_{t+1}$ the agent observes $z \in Z$ with probability $O(z
 Assessing multi-agent behavior in partially-observable settings requires a benchmark which can accurately model the stochastic dynamics of real-world systems. We select StarCraft II \cite{smac} scenarios particularly for two reasons. Firstly, micromanagement scenarios consist of a larger number of agents with different action spaces. This requires a greater deal of coordination. Lastly, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. Irrespective of the time evolution of an episode, environment dynamics of each scenario change rapidly as the agents need to respond to enemy's behavior. 
 
 \subsection{Learning Model-Free Behaviors}
-% expand out each algorithm with its details
-\textbf{IQL:}
-\textbf{VDN:}
-\textbf{QMIX:}
-\textbf{QMIX-SMiRL:}
+Learning model-free behaviors can be assessed from by making use of state-of-the-art RL algorithms as these allow the agent to learn from a scalar reward signal which is representative of the dynamics of the environment. RL methods have proven to be sample-efficient \cite{atari} with suitable convergence properties \cite{rl} in the case of well-defined tasks. Corresponding to the discrete action and state space settings, one of the most popular RL algorithms is Q-learning \cite{rl}. Q-learning consists of a number of variants which have been improved and utilized in the case of single-agent RL methods. However, its applications in MARL remain limited due to the scalability in the large number of agents \cite{qmix} and computational expense incurred as a result of gradient-based methods. 
+
+We assess 4 Q-learning agents from the perspective of multi-agent learning, namely Independent Q-Learning (IQL) \cite{iql}, Value Decomposition Networks (VDNs), QMIX \cite{qmix} and QMIX with Surprise Minimization for RL (QMIX-SMiRL) \cite{smirl}. Corresponding to each agent we retrieve the cost function $J(\theta)$ by establishing links between the method and standard Q-learning. Following the formulation of the cost function, a mathematical analysis of Q-values is carried out which forms the basis for empirical evaluation of multiple agents. 
+
+\subsection{IQL}
+A natural way to model a multi-agent system is to define a cost function $J_{i}(\theta)$ for each agent $i \in N$. The agent $i$ is then allowed to minimize $J_{i}(\theta)$ in order to optimize its expected payoffs $Q_{i}(u^{(i)},s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u^{(i)}=u^{(i)}_{t}]$. This form of the reward maximization is directly based on the standard Q-learning as exprresed in \cite{eq:action-value}. Each agent maintains its set of Q-values which are directly affected only by the agent's actions $u^{(i)}_{t}$ in a given state $s_{t}$. 
+
+
+\subsection{VDN}
+
+\subsection{QMIX}
+
+\subsection{QMIX-SMiRL}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,7 +181,7 @@ Firstly, we formulate the energy-based objective consisting of surprise as a fun
 \begin{gather}
     \mathcal{T}V^{a}_{surp}(s,u,\sigma) = \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))} \label{eq:2}
 \end{gather}
-We make use of the Mellowmax operator \cite{mellowmax} as our energy operator. The energy operator is similar to the SQL energy formulation \cite{sql} where the energy across different actions is evaluated. In our case, inference is carried out across all agents with actions as prior variables. However, in the special case of using an EBM as a $Q$-function, the EMIX objective reduces to the SQL objective (details in the supplementary material). 
+We make use of the Mellowmax operator \cite{mellowmax} as our energy operator. The energy operator is similar to the SQL energy formulation \cite{sql} where the energy across different actions is evaluated. In our case, inference is carried out across all agents with actions as prior variables. However, in the special case of using an energy-based model as a $Q$-function, the objective reduces to the SQL objective.. 
 
 Our choice of the energy operator is based on its unique mathematical properties which result in better convergence. Of these properties, the most useful result is that the energy operator forms a contraction on the surprise value function indicating a guaranteed minimization of surprise within agents. This is formally stated in Theorem \autoref{one}. % refer here
 \begin{customthm}{1}\label{one}
