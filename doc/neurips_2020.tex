@@ -44,6 +44,9 @@
     citecolor=blue
 }
 
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
 \newtheorem{innercustomgeneric}{\customgenericname}
 \providecommand{\customgenericname}{}
 \newcommand{\newcustomtheorem}[2]{%
@@ -193,6 +196,19 @@ Expressing the joint Q-value as a linear combination of individual agent Q-value
 While VDNs serve as one of the first motivating examples for mutual collaboration using centralized optimization, their generalization capability is hindered by linearity in combinations \cite{qmix}. Most practical scenarios consist of non-linear dynamics and ill-posed conditions which restrict a closed-form factorization of Q-values in VDNs. This often results in sub-optimal convergence on high-dimensional tasks \cite{qmix}.
 
 \subsubsection{QMIX}
+Linear decompositions can be generalized to non-linear expressions by utilizing non-linear approximators. Such a generalization results in the inreased expressiveness of the action-value function. Q-values can be generalized to the larger family of monotonic functions. However, monotonicity constraints need to be enforced which satisfy \autoref{eq:monotonic}.
+\begin{gather}
+  \frac{\partial Q}{\partial Q_{i}} \geq 0.\quad \forall i \in N \label{eq:monotonic}
+\end{gather}
+\autoref{eq:monotonic} lays out the key idea behind the QMIX \cite{qmix} algorithm. While VDN is realized as a "hard" factorization for extracting decentralized policies, QMIX is a "soft" generalization of the value factorization problem posed by VDN. In order to maintain consistency, QMIX ensures that a global $\argmax$ performed on $Q$ results in the same vector as obtained upon performing individual $\argmax$ operations on each $Q_{i}$. The statement is mathematically expressed in \autoref{eq:qmix}.
+\begin{gather}
+   \underset{u}{\argmax}\; Q(u,s) = \begin{pmatrix}
+    \underset{u^{(1)}}{\argmax}\; Q_{(1)}(u^{(1)},z^{(1)}) \\
+    \underset{u^{(2)}}{\argmax}\; Q_{(2)}(u^{(2)},z^{(2)}) \\
+    \vdots \\
+    \underset{u^{(n)}}{\argmax}\; Q_{(n)}(u^{(n)},z^{(n)})
+  \end{pmatrix} \label{eq:qmix}
+\end{gather}
 
 \subsubsection{QMIX-SMiRL}
 
