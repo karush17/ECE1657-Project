@@ -181,6 +181,13 @@ VDNs exploit the assumption that the joint action-value function $Q(u,s;\theta)$
 \begin{gather}
   Q(u,s;\theta) \approx \sum_{i=1}^{n}Q_{i}(u^{(i)},z^{(i)};\theta)\label{eq:assum}
 \end{gather}
+In the case of TMGs, the decomposition corresponds to the case when the agents observe their own goals and but not necessarily those of the teammates. Thus, the decomposition can be expressed more generally as in \autoref{eq:vdn} which is obtained from the joint Q-value of the agents.
+\begin{gather}
+  Q(u,s,;\theta) = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r(s,u)|s=s_{t}, u=u_{t}] \nonumber
+\end{gather}
+\begin{multline}
+  = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{1}(z^{(1)},u^{(1)})|z=z^{(1)}_{t}, u^{(1)}=u^{(1)}_{t}]\\ + \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{2}(z^{(2)},u^{(2)})|z=z^{(2)}_{t}, u^{(2)}=u^{(2)}_{t}]\\ ... +\mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{n}(z^{(n)},u^{(n)})|z=z^{(n)}_{t}, u^{(n)}=u^{(n)}_{t}] \labe{eq:vdn}
+\end{multline}
 
 \subsubsection{QMIX}
 
