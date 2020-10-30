@@ -186,8 +186,11 @@ In the case of TMGs, the decomposition corresponds to the case when the agents o
   Q(u,s,;\theta) = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r(s,u)|s=s_{t}, u=u_{t}] \nonumber
 \end{gather}
 \begin{multline}
-  = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{1}(z^{(1)},u^{(1)})|z=z^{(1)}_{t}, u^{(1)}=u^{(1)}_{t}]\\ + \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{2}(z^{(2)},u^{(2)})|z=z^{(2)}_{t}, u^{(2)}=u^{(2)}_{t}]\\ ... +\mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{n}(z^{(n)},u^{(n)})|z=z^{(n)}_{t}, u^{(n)}=u^{(n)}_{t}] \labe{eq:vdn}
+  = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{1}(z^{(1)},u^{(1)})|z=z^{(1)}_{t}, u^{(1)}=u^{(1)}_{t}]\\ + \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{2}(z^{(2)},u^{(2)})|z=z^{(2)}_{t}, u^{(2)}=u^{(2)}_{t}]\\ ... +\mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{n}(z^{(n)},u^{(n)})|z=z^{(n)}_{t}, u^{(n)}=u^{(n)}_{t}] \label{eq:vdn}
 \end{multline}
+Expressing the joint Q-value as a linear combination of individual agent Q-values results in mutual collaboration. The gradient of the joint Q-value $\nabla_{\theta}Q(u,s,;\theta)$ accumulates information about other agents' actions which is propagated to the each agent. VDNs make use of neural networks \cite{cnn} as function approximators to estimate $Q(u,s,;\theta)$. This enables the approximator to exploit gradient information using the backpropagation algorithm \cite{cnn}. 
+
+While VDNs serve as one of the first motivating examples for mutual collaboration using centralized optimization, their generalization capability is hindered by linearity in combinations \cite{qmix}. Most practical scenarios consist of non-linear dynamics and ill-posed conditions which restrict a closed-form factorization of Q-values in VDNs. This often results in sub-optimal convergence in high-dimensional tasks \cite{qmix}.
 
 \subsubsection{QMIX}
 
