@@ -316,6 +316,12 @@ Mikayel Samvelyan, Tabish Rashid, Christian~Schroeder de~Witt, Gregory
   Torr, Jakob Foerster, and Shimon Whiteson.
 \newblock The starcraft multi-agent challenge, 2019.
 
+\bibitem{hdqn}
+Tejas~D Kulkarni, Karthik Narasimhan, Ardavan Saeedi, and Josh Tenenbaum.
+\newblock Hierarchical deep reinforcement learning: Integrating temporal
+  abstraction and intrinsic motivation.
+\newblock In {\em Advances in neural information processing systems}, 2016.
+
 \bibitem{mellowmax}
 Kavosh Asadi and Michael~L Littman.
 \newblock An alternative softmax operator for reinforcement learning.
