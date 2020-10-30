@@ -167,7 +167,7 @@ A natural way to model a multi-agent system is by defining a cost function $L_{i
 
 Q-learning makes use of the TD error as expressed in \autoref{eq:td}. TD error serves as a practical choice for multi-agent learning due to its long-horizon suitabiity. The objective makes use of discounted bootstrapped estimates to prevent the agent from exhibiting short-sighted behavior. Additionally, the gradient of the TD error is computationally tractable in comparison to other policy-based methods \cite{rl} which require likelihood ratio gradients in learning. Thus, TD error is utilized to formulate the objective for IQL. Since each agent exhibits individual behavior and consists of its own unique policy $\pi^{i}(a_{t}|s_{t})$ governed by Q-values $Q_{i}(u^{(i)},s;\theta)$, the TD error corresponding to this agent can be expressed as in \autoref{eq:iql} where $\theta^{-}$ denotes the parameters of the target approximator. 
 \begin{gather}
-  L_{i}(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u^{(i)}_{t+1}\in A^{(i)}}{\max} Q(u^{(i)}_{t+1},s_{t+1};\theta^{-}) - Q(u^{(i)},s;\theta))^{2}] \label{eq:iql}
+  L_{i}(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u^{(i)}_{t+1}\in A^{(i)}}{\max} Q_{i}(u^{(i)}_{t+1},s_{t+1};\theta^{-}) - Q_{i}(u_{t}^{(i)},s_{t};\theta))^{2}] \label{eq:iql}
 \end{gather}
 
 In practice, \autoref{eq:iql} is optimized using the batch gradient descent algorithm wherein the gradient is computed over batches of Q-values in order to reduce variance in estimates. While the IQL objective provides a framework for multi-agent learning, it does not guarantee convergence due to three main reasons. Firstly, with respect to each agent, all other agents are a part of the environment dynamics and their actions will affect state transitions when the agent interacts with the environment. Thus, each agent faces a non-stationary problem as other agents change their behaviors during learning. Secondly, each agent is initialized with its own objective function which leads to a total of $n$ objective functions. This results in a complexity which scales linearly in the number of agents, thus resulting in intractable optimization schemes for large number of agents. Lastly, while all agents are a part of the same system they do not share information or communicate with each other. This does not lead to mutual collaboration. 
@@ -177,7 +177,10 @@ Limitations of independent objective functions in Q-learning methods highlight t
 
 A suitable alternative to tackle large action spaces is the decentralization of tasks for action selection \cite{vdn}. Since the large action space corresponds to the increased number of control inputs, each set of inputs is grouped as the actions $u_{t}^{(i)}$ corresponding to an agent which is a part of the multi-agent system. Each agent in the system consists of its own Q-values which are utilized for decentralized execution of the task. These Q-values are a linear decomposition of the overall Q-value of the multi-agent system. Agents learn the linear additive decomposition of values which leads to the centralized optimization of control inputs. This is the fundamental idea behind VDNs \cite{vdn}.
 
-
+VDNs exploit the assumption that the joint action-value function $Q(u,s;\theta)$ can be additively decomposed into action-value functions across agents. The assumption is mathematically expressed in \autoref{eq:assum} where $z^{(i)}$ denotes the observation of each agent $i$.
+\begin{gather}
+  Q(u,s;\theta) \approx \sum_{i=1}^{n}Q_{i}(u^{(i)},z^{(i)};\theta)\label{eq:assum}
+\end{gather}
 
 \subsubsection{QMIX}
 
