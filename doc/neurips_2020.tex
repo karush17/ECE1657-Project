@@ -197,18 +197,34 @@ While VDNs serve as one of the first motivating examples for mutual collaboratio
 
 \subsubsection{QMIX}
 Linear decompositions can be generalized to non-linear expressions by utilizing non-linear approximators. Such a generalization results in the inreased expressiveness of the action-value function. Q-values can be generalized to the larger family of monotonic functions. However, monotonicity constraints need to be enforced which satisfy \autoref{eq:monotonic}.
+
 \begin{gather}
   \frac{\partial Q}{\partial Q_{i}} \geq 0.\quad \forall i \in N \label{eq:monotonic}
 \end{gather}
+
 \autoref{eq:monotonic} lays out the key idea behind the QMIX \cite{qmix} algorithm. While VDN is realized as a "hard" factorization for extracting decentralized policies, QMIX is a "soft" generalization of the value factorization problem posed by VDN. In order to maintain consistency, QMIX ensures that a global $\argmax$ performed on $Q$ results in the same vector as obtained upon performing individual $\argmax$ operations on each $Q_{i}$. The statement is mathematically expressed in \autoref{eq:qmix}.
+
 \begin{gather}
    \underset{u}{\argmax}\; Q(u,s) = \begin{pmatrix}
-    \underset{u^{(1)}}{\argmax}\; Q_{(1)}(u^{(1)},z^{(1)}) \\
-    \underset{u^{(2)}}{\argmax}\; Q_{(2)}(u^{(2)},z^{(2)}) \\
+    \underset{u^{(1)}}{\argmax}\; Q_{1}(u^{(1)},z^{(1)};\theta) \\
+    \underset{u^{(2)}}{\argmax}\; Q_{2}(u^{(2)},z^{(2)};\theta) \\
     \vdots \\
-    \underset{u^{(n)}}{\argmax}\; Q_{(n)}(u^{(n)},z^{(n)})
+    \underset{u^{(n)}}{\argmax}\; Q_{n}(u^{(n)},z^{(n)};\theta)
   \end{pmatrix} \label{eq:qmix}
 \end{gather}
+
+QMIX approximates each $\underset{u^{(1)}}{\argmax}\; Q_{(i)}(u^{(i)},z^{(i)};\theta)$ using a neural network when selecting its actions. During its updates, QMIX makes use of a \textit{mixer-network} $f$ as a neural network. The \textit{mixer-network} $f$ serves as a mapping from agents' individual action-values to the global action-values. This is mathematically epxressed in \autoref{eq:mixer}.
+\begin{multline}
+  Q(u,s) = f(Q_{1}(u^{(1)},z^{(1)};\theta),...Q_{n}(u^{(n)},z^{(n)};\theta)),\\
+  \quad s.t.\; f:Q_{i}(u^{(i)},z^{(i)};\theta)\rightarrow Q(u,s;\theta), \; \forall i \in N \label{eq:mixer}
+\end{multline}
+
+Monotonicity constraints in the \textit{mixer-network} are enforced by making use of the absolute \textit{tanh} operation as the suitable choice of non-linearity in units of the neural network. Additionally, the weight constants of the network are conditioned on the global state $s_{t}$. State dependence of $Q_{(i)}(u^{(i)},z^{(i)};\theta)$ relaxes the monotonicity constraint on $Q(u,s;\theta)$ and allows the full state information in the joint action-value estimates. This allows the formulation of the QMIX objective based on the Q-learning objective in \autoref{eq:td} and the \textit{mixer-network} formulation in \autoref{eq:mixer}. The objective is mathematically expressed in \autoref{eq:obj} where $Q(u_{t},s_{t};\theta)$ is the global action-value function estimated using the \textit{mixer-network} in \autoref{eq:mixer}.
+\begin{gather}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u_{t},s_{t};\theta))^{2}] \label{eq:obj}
+\end{gather}
+
+
 
 \subsubsection{QMIX-SMiRL}
 
