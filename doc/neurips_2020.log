@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  30 OCT 2020 20:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  31 OCT 2020 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -668,25 +668,33 @@ LaTeX Warning: Command \textquotesingle invalid in math mode on input line 130.
 
 [2] [3] [4]
 
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 242.
+LaTeX Warning: Reference `eq:surprise.' on page 5 undefined on input line 232.
 
 
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 278.
+Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 248.
 
-[5] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl [6] [7]) [8] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux) ) 
+[5]
+
+Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 284.
+
+(c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl [6] [7]) [8] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 13705 strings out of 479916
- 210100 string characters out of 5886642
- 590707 words of memory out of 5000000
- 29629 multiletter control sequences out of 15000+600000
+ 13707 strings out of 479916
+ 210127 string characters out of 5886642
+ 591707 words of memory out of 5000000
+ 29630 multiletter control sequences out of 15000+600000
  563568 words of font info for 251 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,17n,77p,1936b,816s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (8 pages, 219641 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (8 pages, 221836 bytes).
 PDF statistics:
- 416 PDF objects out of 1000 (max. 8388607)
- 387 compressed objects within 4 object streams
- 107 named destinations out of 1000 (max. 500000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 394 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
  23209 words of extra memory for PDF output out of 24883 (max. 10000000)
 

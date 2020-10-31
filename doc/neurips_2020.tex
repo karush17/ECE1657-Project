@@ -227,7 +227,13 @@ Monotonicity constraints in the \textit{mixer-network} are enforced by making us
 Monotonic value factorization of QMIX allows a generalized decomposition which is capable of approximating richer decentralized policies. Additionally, QMIX is scalable in the number of agents as a result of the centralized \textit{mixer-network} which retains global Q-value information in the individual Q-value estimates. However, the QMIX scheme depicts sub-optimal robustness in the case of fast-paced dynamics \cite{smac} which hurts convergence in cases of challenging tasks. 
 
 \subsubsection{QMIX-SMiRL}
+Improving robustness to stochastic dynamics is a challenging task since it requires the agent to have an accurate belief about its states. Stochastic states which steer the agent to unexplored experiences are beneficial in exploration \cite{curiosity}. However, stochasticity hinders long-horizon optimization of expected reward and hurts consistent behavior \cite{surprise}. Deviation from continuous learning as a result of stochastic dynamics is termed as surprise \cite{surprise}. Surprise in the environment may correspond to high entropy among actions of agents \cite{surpmodeling} or it can simply be expressed as the deviation among consecutive states \cite{smirl,gen}. 
 
+Minimizing surprise can be realized as an auxilary objective for modeling robust agent behavior. The agent acts in the environment with its primary goal as to maximize the expected reward with a small weight assigned to the auxilary objective of minimizing surprise. The auxilary surprise is incorporated as a penalty in the case of per step episodic returns. \autoref{eq:surprise.} mathematically expresses the joint suprise minimization objective $r^{'}$ where $r$ denotes per step returns, $surp$ is the surprise consisting information about environment dynamics and $\beta$ is the temperature parameter which balances the two terms. 
+\begin{gather}
+  r^{'} = r - \beta(surp)
+\end{gather}
+The surprise regularized reward is used in place of per step returns $r$ which enforces robust behavior among agents. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tackling Stochastic Dynamics}
