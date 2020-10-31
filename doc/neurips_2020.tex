@@ -196,7 +196,7 @@ Expressing the joint Q-value as a linear combination of individual agent Q-value
 While VDNs serve as one of the first motivating examples for mutual collaboration using centralized optimization, their generalization capability is hindered by linearity in combinations \cite{qmix}. Most practical scenarios consist of non-linear dynamics and ill-posed conditions which restrict a closed-form factorization of Q-values in VDNs. This often results in sub-optimal convergence on high-dimensional tasks \cite{qmix}.
 
 \subsubsection{QMIX}
-Linear decompositions can be generalized to non-linear expressions by utilizing non-linear approximators. Such a generalization results in the inreased expressiveness of the action-value function. Q-values can be generalized to the larger family of monotonic functions. However, monotonicity constraints need to be enforced which satisfy \autoref{eq:monotonic}.
+Linear decompositions can be generalized to non-linear expressions by utilizing non-linear approximators. Such a generalization results in inreased expressiveness of the action-value function. Q-values can be generalized to the larger family of monotonic functions which motivate consistency among estimates. However, monotonicity constraints need to be enforced which would satisfy \autoref{eq:monotonic}.
 
 \begin{gather}
   \frac{\partial Q}{\partial Q_{i}} \geq 0.\quad \forall i \in N \label{eq:monotonic}
@@ -213,7 +213,7 @@ Linear decompositions can be generalized to non-linear expressions by utilizing 
   \end{pmatrix} \label{eq:qmix}
 \end{gather}
 
-QMIX approximates each $\underset{u^{(1)}}{\argmax}\; Q_{(i)}(u^{(i)},z^{(i)};\theta)$ using a neural network when selecting its actions. During its updates, QMIX makes use of a \textit{mixer-network} $f$ as a neural network. The \textit{mixer-network} $f$ serves as a mapping from agents' individual action-values to the global action-values. This is mathematically epxressed in \autoref{eq:mixer}.
+QMIX approximates each $Q_{(i)}(u^{(i)},z^{(i)};\theta)$ using a neural network when selecting its actions. During its updates, QMIX makes use of a \textit{mixer-network} $f$ as a neural network. The \textit{mixer-network} $f$ serves as a mapping from agents' individual action-values to the global action-values. This is mathematically expressed in \autoref{eq:mixer}.
 \begin{multline}
   Q(u,s) = f(Q_{1}(u^{(1)},z^{(1)};\theta),...Q_{n}(u^{(n)},z^{(n)};\theta)),\\
   \quad s.t.\; f:Q_{i}(u^{(i)},z^{(i)};\theta)\rightarrow Q(u,s;\theta), \; \forall i \in N \label{eq:mixer}
