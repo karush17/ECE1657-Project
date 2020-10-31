@@ -224,7 +224,7 @@ Monotonicity constraints in the \textit{mixer-network} are enforced by making us
   L(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u_{t},s_{t};\theta))^{2}] \label{eq:obj}
 \end{gather}
 
-
+Monotonic value factorization of QMIX allows a generalized decomposition which is capable of approximating richer decentralized policies. Additionally, QMIX is scalable in the number of agents as a result of the centralized \textit{mixer-network} which retains global Q-value information in the individual Q-value estimates. However, the QMIX scheme depicts sub-optimal robustness in the case of fast-paced dynamics \cite{smac} which hurts convergence in cases of challenging tasks. 
 
 \subsubsection{QMIX-SMiRL}
 
