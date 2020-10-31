@@ -84,7 +84,7 @@
 \maketitle
 
 \begin{abstract}
-Advancements in Multi-Agent Reinforcement Learning (MARL) are motivated by cooperation in agents arising from Game Theory (GT). Agents must collaborate in practical scenarios in order to achieve complex objectives and attain strategies which depict optimal behavior. The need for cooperation is further highlighted in the case of partially-observed settings wherein agents have restricted access to environment observations. We revisit cooperation in MARL from the viewpoint of GT and stochastic dynamics of environments. The contributions of our work are twofold. (1) We analyze and demonstrate the effectiveness of cooperative MARL in the case of complex and partially-observed tasks consisting of high-dimensional action spaces and stochastic dynamics. (2) We leverage the empirical demonstrations to construct a novel optimization objective which addresses the detrimental effects of stochastic states across agents. Our large-scale experiments carried out on the StarCraft II benchmark depict the effectiveness of cooperative MARL and our novel objective for obtaining optimal strategies under stochastic dynamics. 
+Advancements in Multi-Agent Reinforcement Learning (MARL) are motivated by cooperation in agents arising from Game Theory (GT). Agents must collaborate in practical scenarios in order to achieve complex objectives and attain strategies which depict optimal behavior. The need for cooperation is further highlighted in the case of partially-observed settings wherein agents have restricted access to environment observations. We revisit cooperation in MARL from the viewpoint of GT and stochastic dynamics of environments. The contributions of our work are threefold. (1) We analyze and demonstrate the effectiveness of cooperative MARL in the case of complex and partially-observed tasks consisting of high-dimensional action spaces and stochastic dynamics. (2) We leverage the empirical demonstrations to construct a novel optimization objective which addresses the detrimental effects of stochastic states across agents. Our large-scale experiments carried out on the StarCraft II benchmark depict the effectiveness of cooperative MARL and our novel objective for obtaining optimal strategies under stochastic dynamics. 
 
 \end{abstract}
 
@@ -231,10 +231,17 @@ Improving robustness to stochastic dynamics is a challenging task since it requi
 
 Minimizing surprise can be realized as an auxilary objective for modeling robust agent behavior. The agent acts in the environment with its primary goal as to maximize the expected reward with a small weight assigned to the auxilary objective of minimizing surprise. The auxilary surprise is incorporated as a penalty in the case of per step episodic returns. \autoref{eq:surprise.} mathematically expresses the joint suprise minimization objective $r^{'}$ where $r$ denotes per step returns, $surp$ is the surprise consisting information about environment dynamics and $\beta$ is the temperature parameter which balances the two terms. 
 \begin{gather}
-  r^{'} = r - \beta(surp)
+  r^{'} = r - \beta(surp) \label{eq:surprise}
 \end{gather}
-The surprise regularized reward is used in place of per step returns $r$ which enforces robust behavior among agents. 
-
+The surprise regularized reward is used in place of per step returns $r$ which enforces robust behavior among agents. While, surprise minimization serves as a general framework in RL, we extend its formulation to the multi-agent setup. We combine surprise minimization scheme of SMiRL \cite{smirl} with the QMIX algorithm in order to improveness robustness of agents to stochastic dynamics. \autoref{eq:smirl} presents the surprise minimization objective of SMiRL where $k$ denotes the past $k$ states in the batch, $\sigma_{k}$ is the standard deviation among past $k$ states and $\mu_{k}$ is the mean over past $k$ states. 
+\begin{gather}
+  r^{'} = r - \beta(- \sum_{k}(\log\sigma_{k} + \frac{(s_{k} - \mu_{k})^{2}}{2\sigma_{k}^{2}}) \label{eq:smirl}
+\end{gather}
+\autoref{eq:smirl} can be used in place of $r$ in the original QMIX objective to yield the QMIX-SMiRL objective which is expressed in \autoref{eq:qmix-smirl}.
+\begin{multline}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[(r - \beta(- \sum_{b}(\log\sigma_{b} + \frac{(s_{b} - \mu_{b})^{2}}{2\sigma_{b}^{2}})\\ + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u_{t},s_{t};\theta))^{2}] \label{eq:qmix-smirl}
+\end{multline}
+\autoref{eq:qmix-smirl} forms the fundamental basis for our novel surprise minimization objective. The SMiRL scheme incorporates information about dynamics for motivating robust behavior. However, direct usage of noisy $\sigma_{i}$ values in the auxilary surprise minimization objective leads to high variance in estimates. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tackling Stochastic Dynamics}
 In this section we introduce the novel objective for surprise minimization. The motivation behind surprise minimization in multi-agent learning stems from stochasticity in states leading to estimation biases among agents in the case of partially-observed settings. The proposed objective aims to address these challenges by making use of an energy-based scheme which takes into account observations of each agent in the multi-agent system. 
@@ -243,7 +250,7 @@ Firstly, we formulate the energy-based objective consisting of surprise as a fun
 \begin{gather}
     \mathcal{T}V^{a}_{surp}(s,u,\sigma) = \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))} \label{eq:2}
 \end{gather}
-We make use of the Mellowmax operator \cite{mellowmax} as our energy operator. The energy operator is similar to the SQL energy formulation \cite{sql} where the energy across different actions is evaluated. In our case, inference is carried out across all agents with actions as prior variables. However, in the special case of using an energy-based model as a $Q$-function, the objective reduces to the SQL objective.. 
+We make use of the Mellowmax operator \cite{mellowmax} as our energy operator. The energy operator is similar to the SQL energy formulation \cite{sql} where the energy across different actions is evaluated. In our case, inference is carried out across all agents with actions as prior variables. However, in the special case of using an energy-based model as a $Q$-function, the objective reduces to the SQL objective.
 
 Our choice of the energy operator is based on its unique mathematical properties which result in better convergence. Of these properties, the most useful result is that the energy operator forms a contraction on the surprise value function indicating a guaranteed minimization of surprise within agents. This is formally stated in Theorem \autoref{one}. % refer here
 \begin{customthm}{1}\label{one}
