@@ -241,7 +241,7 @@ The surprise regularized reward is used in place of per step returns $r$ which e
 \begin{multline}
   L(\theta) = \underset{b \sim R}{\mathbb{E}}[(r - \beta(- \sum_{b}(\log\sigma_{b} + \frac{(s_{b} - \mu_{b})^{2}}{2\sigma_{b}^{2}})\\ + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u_{t},s_{t};\theta))^{2}] \label{eq:qmix-smirl}
 \end{multline}
-\autoref{eq:qmix-smirl} forms the fundamental basis for our novel surprise minimization objective. The SMiRL scheme incorporates information about dynamics for motivating robust behavior. However, direct usage of noisy $\sigma_{i}$ values in the auxilary surprise minimization objective leads to high variance in estimates. 
+\autoref{eq:qmix-smirl} forms the fundamental basis for our novel surprise minimization objective. The SMiRL scheme incorporates information about dynamics for motivating robust behavior. However, direct usage of noisy $\sigma_{i}$ values in the auxilary surprise minimization objective leads to high variance in estimates. These estimates hurt the performance of agents as a result of unexplored circumstances in the environment. Thus, tackling surprise requires a robust and informative objective.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tackling Stochastic Dynamics}
 In this section we introduce the novel objective for surprise minimization. The motivation behind surprise minimization in multi-agent learning stems from stochasticity in states leading to estimation biases among agents in the case of partially-observed settings. The proposed objective aims to address these challenges by making use of an energy-based scheme which takes into account observations of each agent in the multi-agent system. 
