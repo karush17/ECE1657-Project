@@ -317,16 +317,26 @@ Upon agent's convergence to an optimal policy $\pi^{*}$, total energy of $\pi^{*
 
 
 \section{Experiments}
-
+Our experiments aim to evaluate the performance, consistency, sample-efficiency and effectiveness of
+the various components of our novel objective. Specifically, we aim to answer the following two questions- (1)
+How does our method compare to current state-of-the-art MARL methods in terms of performance,
+consistency and sample efficiency? and (2) Does the algorithm validate the theoretical claims corresponding to its
+components?
 \subsection{The StarCraft II Benchmark}
-% explain out the SC2 benchmark, reasons and its highlights
+We assess the performance and sample-efficiency of our method on multi-agent StarCraft II micromanagement scenarios \cite{smac} as these consist of a larger number of agents with different action spaces which motivates a greater deal of coordination. Additionally, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. We compare our method to current state-of-the-art methods, namely QMIX \cite{qmix}, VDN \cite{vdn} and IQL \cite{iql}. In order to compare our surprise-based scheme against pre-existing surprise minimization mechanisms, we compare the objective additionally to a model-free implementation of SMiRL \cite{smirl} in QMIX. All methods were implemented using the PyMARL framework \cite{smac}. The SMiRL component was additionally incorporated as per the update rule provided in \cite{gen}. We use the generalized version of SMiRL as it demonstrates reduced variance across batches. We term this implementation as SMiRL-QMIX for our comparisons. Details related to the implementation of EMIX are presented in the supplementary material.
 
 \subsection{Performance}
-% your RL results and details come here
+FIGURE presents the comparison of success rate percentages between EMIX and state-of-the-art MARL algorithms on the StarCraft II micromanagement scenarios. Along with the success rates, we also measure the deviation of performance across the 5 random seeds considered during experiments. (complete results in supplementary material). We evaluate the performance of agents on a total of 12 scenarios. Corresponding to each scenario, algorithms demonstrating higher success rate values in comparison to other methods have their entries highlighted. Out of the 12 scenarios considered, EMIX presents higher success rates on 9 of these scenarios depicting the suitability of the proposed approach. EMIX presents significant performance gains in cases of \textit{so\textunderscore many\textunderscore baneling} and \textit{5m\textunderscore vs \textunderscore 6m} which consist of a large number of opponents and a greater difficulty level respectively. When compared to QMIX, EMIX depicts improved success rates on all of the 12 scenarios. For instance, in scenarios such as \textit{3s\textunderscore vs\textunderscore 5z}, \textit{8m\textunderscore vs\textunderscore 9m} and \textit{5m\textunderscore vs\textunderscore 6m} QMIX presents sub-optimal performance whereas EMIX utilizes a comparatively improved joint policy and yields better convergence in a sample-efficient manner. Moreover, on comparing EMIX with SMiRL-QMIX, we note that EMIX demonstrates a higher average success rate. This highlights the suitability of the energy-based scheme in the case of a larger number of agents and complex environment dynamics for surprise minimization.
 
 \subsection{Stochastic Dynamics}
-% your novel results and explaination comes here
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[height=3cm,width=20cm]{surprise.png}
+  \caption{Variation of surprise minimization with temperature $\beta$ on six different combat scenarios. A suitable value of temperature parameter ($\beta=0.01$) controls the stability in surprise minimization by utilizing $E$ as intrinsic motivation.}
+  \label{fig:ablations}
+\end{figure*}
 
+The importance of $\beta$ can be validated by assessing its usage in surprise minimization. However, it is difficult to evaluate surprise minimization directly as surprise value function estimates $V_{surp}^{a}(s,u,\sigma)$ vary from state-to-state across different agents and thus, they present high variance during agent's learning. This, in turn poses hindrance to gain an intuitive understanding of the surprise distribution. We instead observe the variation of $E$ as it is a collection of surprise-based sample estimates across the batch. Additionally, $E$ consists of prior samples $V_{surp}^{a}(s,u,\sigma)$ for $V_{surp}^{a}(s^{'},u^{'},\sigma^{'})$ which makes inference across different agents tractable. \autoref{fig:ablations} (bottom) presents the variation of Energy ratio $E$ with the temperature parameter $\beta$ during learning. We compare two stable variations of E at $\beta=0.001$ and $\beta=0.01$. The objective minimizes $E$ over the course of learning and attains thermal equilibrium with minimum energy. Intuitively, equilibrium corresponds to convergence to optimal policy $\pi^{*}$ which validates the claim in Theorem \autoref{two}. With $\beta=0.01$, EMIX presents improved convergence and surprise minimization for 5 out of the 6 considered scenarios, hence validating the suitable choice of $\beta$. On the other hand, a lower value of $\beta=0.001$ does little to minimize surprise across agents. In the case of high $\beta$ values, EMIX demonstrates unstable behavior as a result of increasing overestimation error. Thus, a suitable value of $\beta$ is critical for optimal performance and surprise-robust behavior. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusion}
