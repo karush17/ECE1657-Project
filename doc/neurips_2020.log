@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  1 NOV 2020 18:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.7)  1 NOV 2020 19:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -488,7 +488,11 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count313
 \l__pdf_internal_box=\box107
-) (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux)
+) (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux
+
+LaTeX Warning: Label `fig:ablations' multiply defined.
+
+)
 \openout1 = `neurips_2020.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
@@ -677,34 +681,47 @@ Package hyperref Warning: No autoref name for `innercustomgeneric' on input line
 
 Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 291.
 
+<rewards.png, id=268, 1347.71506pt x 224.7597pt>
+File: rewards.png Graphic file (type png)
+<use rewards.png>
+Package pdftex.def Info: rewards.png  used on input line 322.
+(pdftex.def)             Requested size: 569.05945pt x 85.35812pt.
+<tderror.png, id=270, 1341.45164pt x 272.6988pt>
+File: tderror.png Graphic file (type png)
+<use tderror.png>
+Package pdftex.def Info: tderror.png  used on input line 323.
+(pdftex.def)             Requested size: 569.05527pt x 85.35547pt.
 [6]
-<surprise.png, id=287, 1741.9479pt x 287.3134pt>
+<surprise.png, id=290, 1741.9479pt x 287.3134pt>
 File: surprise.png Graphic file (type png)
 <use surprise.png>
-Package pdftex.def Info: surprise.png  used on input line 334.
+Package pdftex.def Info: surprise.png  used on input line 345.
 (pdftex.def)             Requested size: 569.05016pt x 85.35733pt.
 
 
-Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 339.
+Package hyperref Warning: No autoref name for `innercustomgeneric' on input line 350.
 
-(c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl [7] [8 <c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/surprise.png>]) [9] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux)
+(c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.bbl [7 <c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/rewards.png> <c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/tderror.png>] [8 <c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/surprise.png>]) [9] (c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 13731 strings out of 479916
- 210461 string characters out of 5886642
- 595085 words of memory out of 5000000
- 29645 multiletter control sequences out of 15000+600000
- 563769 words of font info for 253 fonts, out of 8000000 for 9000
+ 13745 strings out of 479916
+ 210670 string characters out of 5886642
+ 596124 words of memory out of 5000000
+ 29657 multiletter control sequences out of 15000+600000
+ 563568 words of font info for 251 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,17n,77p,1936b,812s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,17n,77p,1936b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
 {k:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><k:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (9 pages, 4123904 bytes).
+Output written on "c:/Users/Karush Suri/Desktop/Game Theory/ECE1657-Project/doc/neurips_2020.pdf" (9 pages, 9130391 bytes).
 PDF statistics:
- 450 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
- 23214 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 464 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 23240 words of extra memory for PDF output out of 24883 (max. 10000000)
 
