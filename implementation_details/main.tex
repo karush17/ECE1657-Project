@@ -1,0 +1,76 @@
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=1cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+\begin{document}
+
+\begin{center}
+\textbf{\large Implementation Details}
+\hrule
+\end{center}
+
+\section{Implementation Details}
+
+\subsection{StarCraft II Setup}
+We select StarCraft II scenarios particularly for two reasons. Firstly, micromanagement scenarios consist of a larger number of agents with different action spaces. This requires a greater deal of coordination. Lastly, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. Irrespective of the time evolution of an episode, environment dynamics of each scenario change rapidly as the agents need to respond to enemy's behavior. Agents were trained for a total of 5 random seeds consisting of 2 million steps in each environment. All baselines implementation consist of a Recurrent Neural Network (RNN) agent having memory consisting of past states and actions.
+
+\subsection{Model Specifications}
+This section highlights model architecture for the surprise value function. At the lower level, the architecture consists of 3 independent networks called \textit{state\textunderscore net}, \textit{q\textunderscore net} and \textit{surp\textunderscore net}. Each of these networks consist of a single layer of 256 units with ReLU non-linearity as activations. Similar to the mixer-network, we use the ReLU non-linearity in order to provide monotonicity constraints across agents. Using a modular architecture in combination with independent networks leads to a richer extraction of joint latent transition space. Outputs from each of the networks are concatenated and are provided as input to the \textit{main\textunderscore net} consisting of 256 units with ReLU activations. The \textit{main\textunderscore net} yields a single output as the surprise value $V^{a}_{surp}(s,u,\sigma)$ which is reduced along the agent dimension by the energy operator. Alternatively, deeper versions of networks can be used in order to make the extracted embeddings increasingly expressive. However, increasing the number of layers does little in comparison to additional computational expense.  
+
+\subsection{Hyperparameters}
+\autoref{tab:hyp} presents hyperparameter values for EMIX. Value of $\beta$ was tuned between 0.001 and 1 in intervals of 0.01 with best performance observed at $\beta=0.01$. A total of 2 target $Q$-functions were used as the model is found to be robust to any greater values.  
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{c|c}
+         Hyperparameters & Values \\
+         \hline
+         batch size & $b=32$ \\
+         learning rate & $\alpha=0.0005$ \\
+         discount factor & $\gamma=0.99$ \\
+         target update interval & 200 episodes \\
+         gradient clipping & 10 \\
+         exploration schedule & $1.0$ to $0.01$ over 50000 steps\\
+         mixer embedding size & 32 \\
+         agent hidden size & 64 \\
+         temperature & $\beta=0.01$ \\
+         target $Q$-functions & 2
+    \end{tabular}
+    \caption{Hyperparameter values for EMIX agents}
+    \label{tab:hyp}
+\end{table}
+
+
+\end{document}
