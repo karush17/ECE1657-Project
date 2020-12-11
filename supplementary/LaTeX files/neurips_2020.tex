@@ -1,0 +1,368 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2020
+
+% ready for submission
+% \usepackage{neurips_2020}
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+    % \usepackage[preprint,nonatbib]{neurips_2020}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+    \usepackage[final]{neurips_2020}
+
+% to avoid loading the natbib package, add option nonatbib:
+    %  \usepackage[nonatbib]{neurips_2020}
+\usepackage{flushend}
+\usepackage{enumitem}
+\usepackage{bookmark}
+\usepackage{graphics}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{algorithm,algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{microtype}      % microtypography
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage[toc,page]{appendix}
+\usepackage{balance} % for balancing columns on the final page
+\usepackage{caption} 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
+}
+
+\newcustomtheorem{customthm}{Theorem}
+\newcustomtheorem{customlemma}{Lemma}
+
+\title{On Cooperation in Multi-Agent Reinforcement Learning}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{
+  Karush Suri, Dian Gadjov, Lacra Pavel\\
+   Department of Electrical \& Computer Engineering, University of Toronto, Canada.\\
+  \texttt{karush.suri@mail.utoronto.ca}
+}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Advancements in Multi-Agent Reinforcement Learning (MARL) are motivated by cooperation in agents arising from Game Theory (GT). Agents must collaborate in practical scenarios in order to achieve complex objectives and attain strategies which depict optimal behavior. The need for cooperation is further highlighted in the case of partially-observed settings wherein agents have restricted access to environment observations. We revisit cooperation in MARL from the viewpoint of GT and stochastic dynamics of environments. We analyze and demonstrate the effectiveness of cooperative MARL in the case of complex and partially-observed tasks consisting of high-dimensional action spaces and stochastic dynamics. We leverage the empirical demonstrations to construct a novel optimization objective which addresses the detrimental effects of stochastic states across agents. Our large-scale experiments carried out on the StarCraft II benchmark depict the effectiveness of cooperative MARL and our novel objective for obtaining optimal strategies under stochastic dynamics. 
+
+\end{abstract}
+
+\begin{multicols}{2}
+
+\section{Introduction}
+Reinforcement Learning (RL) has seen tremendous growth in applications such as arcade games \cite{atari}, board games \cite{go, shogi}, robot control tasks \cite{ddpg, ppo} and lately, real-time games \cite{SC2}. The rise of RL has led to an increasing interest in the study of multi-agent systems \cite{maddpg, alphastar}, commonly known as Multi-Agent Reinforcement Learning (MARL). MARL provides significant benefits in comparison to contemporary single-agent methods \cite{rl}. The Multi-Agent framework allows the modelling of complex real-world systems which consist of dynamic and large-scale interactions between multiple agents \cite{ltc}. Additionally, MARL enables the learning of diverse strategies which are essential for executing a range of different tasks by the same set of agents. 
+
+In the case of partially observable settings, MARL enables the learning of strategies from a GT perspective by utilizing cooperation across agents\cite{cooperative}. Agents collaborate with each other in a given environment to optimize the cumulative payoffs by means of a single utility function. Optimization of the joint utility function leads to optimal behavior \cite{gt,selective} in the long-horizon which is characterized by each agent executing its optimal strategy irrespective of other agents. Such a framework of learning strategies with collaborators and executing behaviors independently is often referred to as centralized training with decentralized control \cite{coma}.
+
+The regime of decentralized control is hindered by intrinsic stochasticity in the environment. Fast-paced dynamics are a common phenomenon observed in the case of single-agent RL methods. In the case of model-based RL \cite{mbrl}, agents build a model of the environment which learns the dynamics of the environment. Such a scheme is used as an effective planning tool in the case of long-horizon tasks \cite{smirl}. In the case of model-free RL methods, environment stochasticity is addressed by utilizing robust utility functions \cite{surprise,surpmodeling} and effective exploration strategies \cite{gen}. On the other hand, MARL does not account for abrupt dynamics across agents as a result of which the system remains unaware of drastic changes in the environment \cite{role}. Thus, addressing the learning of stochastic dynamics in the case of multi-agent settings requires attention from a critical standpoint.
+
+We revisit cooperation in MARL from the perspective of GT and stochastic dynamics in the agents' environment. Our work assesses and demonstrates collaborative schemes in MARL under partially-observed settings which pose ill-conditioned objectives for the multi-agent system. More specifically, our threefold contributions are the following- 
+
+\begin{itemize}[leftmargin=*]
+\item We analyze and demonstrate the effectiveness of cooperative MARL for complex and partially-observed tasks consisting of high-dimensional action spaces and abrupt dynamics.
+\item We leverage the empirical demonstrations to construct a novel optimization objective which addresses the detrimental effects of stochastic states across agents. 
+\item Suitability of our theoretical analysis is validated by empirical results which highlight the necessity of our surprise-robust objective.
+\end{itemize}
+
+Our large-scale experiments carried out on the StarCraft II benchmark depict the effectiveness of cooperative MARL and our novel objective for obtaining optimal strategies under stochastic dynamics.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Related Work}
+Growing advances in GT have given rise to efficient MARL algorithms and implementations in stochastic scenarios. Thsi section highlights some of the main contributions in learning of stochastic games which have paved the way for Multi-Agent learning. 
+
+\subsection{Learning in Games}
+Learning in games is an active area of development which is motivated by the framework of repeated games \cite{learningingames}. Repetitions of games are also modeled as episodes which has given rise to episodic play and continuous control in the case of single-agent systems. While episodic play serves as the basis for fictitous \cite{benaim} and best-response type learning \cite{learningingames}, learning algorithms in games are primarily motivated by developments in the reinforcement play regime\cite{rl}. Learning algorithms are coupled with fast optimization techniques \cite{atari} to iterate over complex strategy spaces and achieve optimal behavior \cite{rl}. Additionally, developments in the learning regime such as the introduction of complex function approximators \cite{cnn} for optimizing higher order utility functions has played a significant role in expanding computational capabilities of game theoretic learning \cite{ale}. 
+
+\cite{atari} demonstrates the large-scale suitability of reinforcement learning to single-agent learning by making use of Q-learning \cite{rl,doubleqlearning} which allows the agent to learn complex utility functions and generalize to different games \cite{exploration} by making use of a common function approximator. Other methods in literature \cite{deepdoubleqlearning,a3c,ddpg,ppo} have improved upon the Q-learning framework to provide stability \cite{deepdoubleqlearning} and diversity \cite{haarnoja} in learning. These improvements have played a key role in yielding state-of-the-art performance \cite{alphastar} on real-world games \cite{go,shogi} wherein the structure of payoff function is sparse \cite{go} and the agent needs to explore a larger action space \cite{shogi} in order to achieve optimal strategies. 
+
+\subsection{Multi-Agent Learning}
+Most multi-agent methods are based on the paradigm of centralized training and decentralized control \cite{coma,vdn,qmix} wherein agents learn to collaborate \cite{coordinate} and optimize their utility function \cite{coordinatedrl}. The fundamental work on MARL originates from the IQL \cite{iql} framework wherein agents learn to collaborate with independent utilities. While the IQL framework serves as a critical point for advances in MARL, the work of \cite{jakob} presents the common knowledge framework wherein agents collaborate by gaining mutual information about the task and establishing a structured protocol for communication \cite{comm}. Such methods have given rise to large-scale agents capable of optimal behavior on high-dimensional control tasks \cite{maddpg,aac,rmaddpg}. Some of these methods suffer from estimation biases \cite{marlover,iqn} stemming from the function approximator \cite{double} used to maximize the utility function. Various MARL methods \cite{twinmix} make use of a dual function approximator approach which increases the accuracy of estimates. The Weighted Double Deep $Q$-Network (WDDQN) provides stability and sample efficiency for fully-observable settings. In the case of partially-observed scenarios, Weighted-QMIX (WQMIX) \cite{wqmix} yields a more sophisticated weighting scheme which aids in the retrieval of optimal strategy \cite{challenges}.
+
+Despite the recent success of RL \cite{a3c,rainbow} MARL agents suffer from spurious state spaces and encounter sudden changes in trajectories. These anomalous transitions between consecutive states are often termed as surprise \cite{surprise}. Quantitatively, surprise can be inferred as a measure of deviation \cite{smirl,gen} among states encountered by the agent during its interaction with the environment. In the case of single-agent methods, surprise results in sample-inefficient learning \cite{surprise}. This can be tackled by making use of rigorous exploration strategies \cite{effectiveexp,statemarginal}. However, such solutions do not show evidence for multiple agents consisting of individual partial observations \cite{marlsurp}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Preliminaries}
+
+\subsection{Stochastic Markov Games}
+We revisit Stochastic Markov Games \cite{overview} which serve as the fundamental basis for MARL. A Markov Game \cite{gt} is a generalization of a Markov Decision Process (MDP) \cite{rl} which is described using the tuple $(\mathcal{S},\mathcal{A}^{1},\mathcal{A}^{2}...\mathcal{A}^{n},r^{1},r^{2},...r^{n},N,P,\gamma)$ where $\mathcal{S}$ is the finite state space, $\mathcal{A}^{a}$ is the action space corresponding to agent $a$ such that $a \in N$ where $N = \{1,2,...n\}$ is the set of all agents, $r^{a}: \mathcal{S} \times \mathcal{A}^{a} \rightarrow [r_{min}^{a},r_{max}^{a}]$ is the payoff observed by agent $a$ and bounded in $[r_{min}^{a},r_{max}^{a}]$, $P: \mathcal{S} \times \mathcal{S} \times \mathcal{A}^{1} \times \mathcal{A}^{2} \times ...\mathcal{A}^{n} \rightarrow [0,\infty)$ presents the unknown transition model consisting of the transition probabilities to the next state $s\textquotesingle \in \mathcal{S}$ given the current state $s \in \mathcal{S}$ and $\gamma$ is the discount factor. Each agent $a$ performs its own action $u^{a}$ which gives rise to the joint action $u = \{u^{(1)},u^{(2)},...u^{(n)}\}$. Analogously, the action space can be written as the combination of all agents' action spaces $\mathcal{A}:\mathcal{A}^{1} \times \mathcal{A}^{2} \times ... \mathcal{A}^{n}$. Markov Games wherein each agent observes its own payoffs are called General Markov Games (GMGs) \cite{overview}. On the other hand, Markov Games in which all agents observe the same payoffs $r^{1} = r^{2} = ...r^{n} = r$ such that $r: \mathcal{S} \times \mathcal{A} \rightarrow [r_{min},r_{max}]$ are called Team Markov Games (TMGs) \cite{gt}. Thus, a TMG can be compactly defined as a tuple of the form $(\mathcal{S},\mathcal{A},r,N,P,\gamma)$. The general framework of cooperative multi-agent learning makes use of TMGs. 
+
+\subsection{Multi-Agent Learning}
+We review the MARL setup. The problem is modeled as a Partially Observable and Stochastic TMG \cite{rl} defined by the tuple $(\mathcal{S},\mathcal{A},r,N,P,Z,O,\gamma)$ where the state space $\mathcal{S}$ and action space $\mathcal{A}$ are discrete, $r: \mathcal{S} \times \mathcal{A} \rightarrow [r_{min},r_{max}]$ presents the payoff observed by agents $a \in N$ bounded in the interval $[r_{min},r_{max}]$ where $N$ is the set of all agents, $P: \mathcal{S} \times \mathcal{S} \times \mathcal{A} \rightarrow [0,\infty)$ presents the unknown transition model consisting of the transition probability to the next state $s\textquotesingle \in \mathcal{S}$ given the current state $s \in \mathcal{S}$ and joint action $u \in \mathcal{A}$ where $u = \{u_{t}^{(1)},u_{t}^{(2)}...u_{t}^{(n)}\}$ at time step $t$ and $\gamma$ is the discount factor. We consider a partially observable setting in which each agent $a$ draws individual observations $z \in Z$ according to the observation function $O(s,u): \mathcal{S} \times \mathcal{A} \rightarrow Z$. We consider a joint policy $\pi_{\theta}({u|s})$ which quantifies the probability of taking action $u$ in state $s$ as a function of the multi-agent model with its control parameters as $\theta$. Standard RL defines the agent's objective to maximize the expected discounted payoff $\mathbb{E}_{\pi_{\theta}}[\sum_{t=0}^{T}\gamma^{t}r(s_{t},u_{t})]$ as a function of the parameters $\theta$. 
+
+\subsection{Q-Learning}
+We review the Q-learning setup in MARL. The action-value function, which is the expected sum of payoffs obtained in state $s$ upon performing action $u$ by following the policy $\pi_{\theta}$, for an agent is represented in \autoref{eq:action-value}.
+\begin{gather}
+  Q(u,s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u=u_{t}] \label{eq:action-value}
+\end{gather}
+We denote the optimal policy $\pi_{\theta}^{*}$ such that $Q(u,s;\theta^{*}) \geq Q(u,s;\theta) \forall s \in S, u \in A$. In the case of multiple agents, the joint optimal policy can be expressed as the Nash Equilibrium \cite{nash} of the Stochastic TMG as expressed in \autoref{eq:ne}. 
+\begin{multline}
+  \pi^{*} = (\pi^{1,*},\pi^{2,*}, ...\pi^{N,*})\\ s.t.\quad Q(u^{a},s;\theta^{*}) \geq Q(u^{a},s;\theta)\\ \forall s \in S, u \in A, a \in N \label{eq:ne}  
+\end{multline}
+Q-Learning is an off-policy, model-free algorithm suitable for continuous and episodic tasks. The algorithm uses stochastic gradient descent to minimize the Temporal Difference (TD) error expressed in \autoref{eq:td}.
+\begin{gather}
+  \mathbb{L(\theta)} = \underset{b \sim R}{\mathbb{E}}[(y - Q(u,s;\theta))^{2}] \label{eq:td}
+\end{gather}
+Here $y = r + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-})$ is the TD target consisting of $\theta^{-}$ as the target parameters and $b$ is the batch of tuples $(s,u,r,s_{t+1})$ sampled from memory $R$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cooperation in Multi-Agent Learning}
+We assess and lay out the framework for cooperative multi-agent learning in this section. The setting of partially-observable states consisting of stochastic dynamics is discussed from an intuitive viewpoint followed by detailed learning mechanisms in state-of-the-art MARL algorithms.  
+
+\subsection{The Partial Observability Setting}
+Assessing an agent's actions with unknown and stochastic dynamics requires a partially-observable setting. In the case of a partially-observable TMG, the multi-agent system observes a common state $s$ with each of its agents observing individual observations $z \in Z$. These individual observations serve as the agent's basis for selecting action $a$ and optimizing the policy distribution $\pi(a_{t}|s_{t})$. The agent optimizes over its policy by maintaining a belief $b$ over its actions and partial observations. Since the environment is Markovian, the belief of the agent $b_{t+1}$ in state $s_{t+1}$ depends on its belief $b_{t}$ in previous state $s_{t}$. This leads to the formulation of a belief update as expressed in \autoref{eq:belief} where $\tau$ is a belief operator.
+\begin{gather}
+  b_{t+1} = \tau(b_{t},u_{t},z_{t}) \label{eq:belief}
+\end{gather}
+Upon reaching state $s_{t+1}$ the agent observes $z \in Z$ with probability $O(z|s_{t},u_{t})$. Since the belief $b$ is a probability distribution over the state space $\mathcal{S}$, $b(s_{t})$ denotes the probability that the environment is in state $s_{t}$. Thus, the updated belief can be expressed as in \autoref{eq:beliefupdate} where $\eta$ is a normalizing constant and $p(s_{t+1}|s_{t},u_{t})$ is the transition probability from state $s_{t}$ to state $s_{t+1}$ upon performing action $u_{t}$.
+\begin{gather}
+  b_{t}(s_{t}) = \eta O(z|s_{t},u_{t})\sum_{s \in \mathcal{S}}p(s_{t+1}|s_{t},u_{t})b_{t}(s_{t}) \label{eq:beliefupdate}
+\end{gather}
+Assessing multi-agent behavior in partially-observable settings requires a benchmark which can accurately model the stochastic dynamics of real-world systems. We select StarCraft II \cite{smac} scenarios particularly for two reasons. Firstly, micromanagement scenarios consist of a larger number of agents with different action spaces. This requires a greater deal of coordination. Lastly, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. Irrespective of the time evolution of an episode, environment dynamics of each scenario change rapidly as the agents need to respond to enemy's behavior. 
+
+\subsection{Learning Model-Free Behaviors}
+Learning model-free behaviors can be assessed by making use of state-of-the-art RL algorithms as these allow the agent to learn from a scalar reward signal which is representative of the dynamics of the environment. RL methods have proven to be sample-efficient \cite{atari} with suitable convergence properties \cite{rl} in the case of well-defined tasks. Corresponding to the discrete action and state space settings, one of the most popular RL algorithms is Q-learning \cite{rl}. Q-learning consists of a number of variants which have been improved and utilized in the case of single-agent RL methods. However, its applications in MARL remain limited due to the scalability in the large number of agents \cite{qmix} and computational expense incurred as a result of gradient-based methods. 
+
+We assess 4 Q-learning agents from the perspective of multi-agent learning, namely Independent Q-Learning (IQL) \cite{iql}, Value Decomposition Networks (VDNs), QMIX \cite{qmix} and QMIX with Surprise Minimization for RL (QMIX-SMiRL) \cite{smirl}. Corresponding to each agent we retrieve the cost function $L(\theta)$ by establishing links between the method and standard Q-learning. Following the formulation of the cost function, a mathematical analysis of Q-values is carried out which forms the basis for empirical evaluation of multiple agents. 
+
+\subsubsection{IQL}
+A natural way to model a multi-agent system is by defining a cost function $L_{i}(\theta)$ for each agent $i \in N$. The agent $i$ is then allowed to minimize $L_{i}(\theta)$ in order to optimize its expected payoffs $Q_{i}(u^{(i)},s;\theta) = \mathbb{E}_{\pi_{\theta}}[\sum_{t=1}^{T}\gamma^{t}r(s,u)|s=s_{t},u^{(i)}=u^{(i)}_{t}]$. This form of reward maximization is directly based on standard Q-learning as expressed in \autoref{eq:action-value} \cite{iql}. Each agent maintains its set of Q-values which are directly optimized only by the agent's action $u^{(i)}_{t}$ in a given state $s_{t}$. 
+
+Q-learning makes use of the TD error as expressed in \autoref{eq:td}. TD error serves as a practical choice for multi-agent learning due to its long-horizon suitability. The objective makes use of discounted bootstrapped estimates to prevent the agent from exhibiting short-sighted behavior. Additionally, the gradient of the TD error is computationally tractable in comparison to other policy-based methods \cite{rl} which require likelihood ratio gradients in learning. Thus, TD error is utilized to formulate the objective for IQL. Since each agent exhibits individual behavior and consists of its own unique policy $\pi^{i}(a_{t}|s_{t})$ governed by Q-values $Q_{i}(u^{(i)},s;\theta)$, the TD error corresponding to this agent can be expressed as in \autoref{eq:iql} where $\theta^{-}$ denotes the parameters of the target approximator. 
+\begin{gather}
+  L_{i}(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u^{(i)}_{t+1}\in A^{(i)}}{\max} Q_{i}(u^{(i)}_{t+1},s_{t+1};\theta^{-}) - Q_{i}(u_{t}^{(i)},s_{t};\theta))^{2}] \label{eq:iql}
+\end{gather}
+
+In practice, \autoref{eq:iql} is optimized using the batch gradient descent algorithm wherein the gradient is computed over batches of Q-values in order to reduce variance in estimates. While the IQL objective provides a framework for multi-agent learning, it does not guarantee convergence due to three main reasons. Firstly, with respect to each agent, all other agents are a part of the environment dynamics and their actions will affect state transitions when the agent interacts with the environment. Thus, each agent faces a non-stationary problem as other agents change their behaviors during learning. Secondly, each agent is initialized with its own objective function which leads to a total of $n$ objective functions. This results in a complexity which scales linearly in the number of agents, thus resulting in intractable optimization schemes for large number of agents. Lastly, while all agents are a part of the same system they do not share information or communicate with each other. This does not lead to mutual collaboration. 
+
+\subsubsection{VDN}
+Limitations of independent objective functions in Q-learning methods highlight the need for mutual collaboration. In the case of large action spaces \cite{hdqn} and fast-paced dynamics, actions of a single agent have little impact in the maximization of per step returns. Additionally, the long-horizon nature \cite{hdqn} of problems may lead to sparse rewards which hinders credit assignment in hindsight. 
+
+A suitable alternative to tackle large action spaces is the decentralization of tasks for action selection \cite{vdn}. Since the large action space corresponds to the increased number of control inputs, each set of inputs is grouped as the actions $u_{t}^{(i)}$ corresponding to an agent which is a part of the multi-agent system. Each agent in the system consists of its own Q-values which are utilized for decentralized execution of the task. These Q-values are a linear decomposition of the overall Q-value of the multi-agent system. Agents learn the linear additive decomposition of values which leads to centralized optimization of control inputs. This is the fundamental idea behind VDNs \cite{vdn}.
+
+VDNs exploit the assumption that the joint action-value function $Q(u,s;\theta)$ can be additively decomposed into action-value functions across agents. The assumption is mathematically expressed in \autoref{eq:assum} where $z^{(i)}$ denotes the observation of each agent $i$.
+\begin{gather}
+  Q(u,s;\theta) \approx \sum_{i=1}^{n}Q_{i}(u^{(i)},z^{(i)};\theta)\label{eq:assum}
+\end{gather}
+In the case of TMGs, the decomposition corresponds to the case when the agents observe their own goals but not necessarily those of the teammates. Thus, the decomposition can be expressed more generally as in \autoref{eq:vdn} which is obtained from the joint Q-value of the agents.
+\begin{gather}
+  Q(u,s,;\theta) = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r(s,u)|s=s_{t}, u=u_{t}] \nonumber
+\end{gather}
+\begin{multline}
+  = \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{1}(z^{(1)},u^{(1)})|z=z^{(1)}_{t}, u^{(1)}=u^{(1)}_{t}]\\ + \mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{2}(z^{(2)},u^{(2)})|z=z^{(2)}_{t}, u^{(2)}=u^{(2)}_{t}]\\ ... +\mathbb{E}_{\pi^{\theta}}[\sum_{t=1}^{\infty}\gamma^{t-1}r_{n}(z^{(n)},u^{(n)})|z=z^{(n)}_{t}, u^{(n)}=u^{(n)}_{t}] \label{eq:vdn}
+\end{multline}
+Expressing the joint Q-value as a linear combination of individual agent Q-values results in mutual collaboration. The gradient of the joint Q-value $\nabla_{\theta}Q(u,s;\theta)$ accumulates information about other agents' actions which is propagated to each agent. VDNs make use of neural networks \cite{cnn} as function approximators to estimate $Q(u,s,;\theta)$. This enables the approximator to exploit gradient information using the backpropagation algorithm \cite{cnn}. 
+
+While VDNs serve as one of the first motivating examples for mutual collaboration using centralized optimization, their generalization capability is hindered by linearity in combinations \cite{qmix}. Most practical scenarios consist of non-linear dynamics and ill-posed conditions which restrict a closed-form factorization of Q-values in VDNs. This often results in sub-optimal convergence on high-dimensional tasks \cite{qmix}.
+
+\subsubsection{QMIX}
+Linear decompositions can be generalized to non-linear expressions by utilizing non-linear approximators. Such a generalization results in inreased expressiveness of the action-value function. Q-values can be generalized to the larger family of monotonic functions which motivate consistency among estimates. However, monotonicity constraints need to be enforced which would satisfy \autoref{eq:monotonic}.
+
+\begin{gather}
+  \frac{\partial Q}{\partial Q_{i}} \geq 0.\quad \forall i \in N \label{eq:monotonic}
+\end{gather}
+
+\autoref{eq:monotonic} lays out the key idea behind the QMIX \cite{qmix} algorithm. While VDN is realized as a "hard" factorization for extracting decentralized policies, QMIX is a "soft" generalization of the value factorization problem posed by VDN. In order to maintain consistency, QMIX ensures that a global $\argmax$ performed on $Q$ results in the same vector as obtained upon performing individual $\argmax$ operations on each $Q_{i}$. The statement is mathematically expressed in \autoref{eq:qmix}.
+
+\begin{gather}
+   \underset{u}{\argmax}\; Q(u,s) = \begin{pmatrix}
+    \underset{u^{(1)}}{\argmax}\; Q_{1}(u^{(1)},z^{(1)};\theta) \\
+    \underset{u^{(2)}}{\argmax}\; Q_{2}(u^{(2)},z^{(2)};\theta) \\
+    \vdots \\
+    \underset{u^{(n)}}{\argmax}\; Q_{n}(u^{(n)},z^{(n)};\theta)
+  \end{pmatrix} \label{eq:qmix}
+\end{gather}
+
+QMIX approximates each $Q_{(i)}(u^{(i)},z^{(i)};\theta)$ using a neural network when selecting its actions. During its updates, QMIX makes use of a \textit{mixer-network} $f$ as a neural network. The \textit{mixer-network} $f$ serves as a mapping from agents' individual action-values to the global action-values. This is mathematically expressed in \autoref{eq:mixer}.
+\begin{multline}
+  Q(u,s) = f(Q_{1}(u^{(1)},z^{(1)};\theta),...Q_{n}(u^{(n)},z^{(n)};\theta)),\\
+  \quad s.t.\; f:Q_{i}(u^{(i)},z^{(i)};\theta)\rightarrow Q(u,s;\theta), \; \forall i \in N \label{eq:mixer}
+\end{multline}
+
+Monotonicity constraints in the \textit{mixer-network} are enforced by making use of the absolute \textit{tanh} operation as the suitable choice of non-linearity in units of the neural network. Additionally, the weight constants of the network are conditioned on the global state $s_{t}$. State dependence of $Q_{(i)}(u^{(i)},z^{(i)};\theta)$ relaxes the monotonicity constraint on $Q(u,s;\theta)$ and allows the full state information in the joint action-value estimates. This allows the formulation of the QMIX objective based on the Q-learning objective in \autoref{eq:td} and the \textit{mixer-network} formulation in \autoref{eq:mixer}. The objective is mathematically expressed in \autoref{eq:obj} where $Q(u_{t},s_{t};\theta)$ is the global action-value function estimated using the \textit{mixer-network} in \autoref{eq:mixer}.
+\begin{gather}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[(r + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u_{t},s_{t};\theta))^{2}] \label{eq:obj}
+\end{gather}
+
+Monotonic value factorization of QMIX allows a generalized decomposition which is capable of approximating richer decentralized policies. Additionally, QMIX is scalable in the number of agents as a result of the centralized \textit{mixer-network} which retains global Q-value information in the individual Q-value estimates. However, the QMIX scheme depicts sub-optimal robustness in the case of fast-paced dynamics \cite{smac} which hurts convergence in cases of challenging tasks. 
+
+\subsubsection{QMIX-SMiRL}
+Improving robustness to stochastic dynamics is a challenging task since it requires the agent to have an accurate belief about its states. Stochastic states which steer the agent to unexplored experiences are beneficial in exploration \cite{curiosity}. However, stochasticity hinders long-horizon optimization of expected reward and hurts consistent behavior \cite{surprise}. Deviation from continuous learning as a result of stochastic dynamics is termed as surprise \cite{surprise}. Surprise in the environment may correspond to high entropy among actions of agents \cite{surpmodeling} or it can simply be expressed as the deviation among consecutive states \cite{smirl,gen}. 
+
+Minimizing surprise can be realized as an auxilary objective for modeling robust agent behavior. The agent acts in the environment with its primary goal as to maximize the expected reward with a small weight assigned to the auxilary objective of minimizing surprise. The auxilary surprise is incorporated as a penalty in the case of per step episodic returns. \autoref{eq:surprise} mathematically expresses the joint suprise minimization objective $r^{'}$ where $r$ denotes per step returns, $surp$ is the surprise consisting information about environment dynamics and $\beta$ is the temperature parameter which balances the two terms. 
+\begin{gather}
+  r^{'} = r - \beta(surp) \label{eq:surprise}
+\end{gather}
+The surprise regularized reward is used in place of per step returns $r$ which enforces robust behavior among agents. While, surprise minimization serves as a general framework in RL, we extend its formulation to the multi-agent setup. We combine surprise minimization scheme of SMiRL \cite{smirl} with the QMIX algorithm in order to improveness robustness of agents to stochastic dynamics. \autoref{eq:smirl} presents the surprise minimization objective of SMiRL where $k$ denotes the past $k$ states in the batch, $\sigma_{k}$ is the standard deviation among past $k$ states and $\mu_{k}$ is the mean over past $k$ states. 
+\begin{gather}
+  r^{'} = r - \beta(- \sum_{k}(\log\sigma_{k} + \frac{(s_{k} - \mu_{k})^{2}}{2\sigma_{k}^{2}}) \label{eq:smirl}
+\end{gather}
+\autoref{eq:smirl} can be used in place of $r$ in the original QMIX objective to yield the QMIX-SMiRL objective which is expressed in \autoref{eq:qmix-smirl}.
+\begin{multline}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[(r - \beta(- \sum_{b}(\log\sigma_{b} + \frac{(s_{b} - \mu_{b})^{2}}{2\sigma_{b}^{2}})\\ + \gamma \underset{u_{t+1}\in A}{\max} Q(u_{t+1},s_{t+1};\theta^{-}) - Q(u_{t},s_{t};\theta))^{2}] \label{eq:qmix-smirl}
+\end{multline}
+\autoref{eq:qmix-smirl} forms the fundamental basis for our novel surprise minimization objective. The SMiRL scheme incorporates information about dynamics for motivating robust behavior. However, direct usage of noisy $\sigma_{i}$ values in the auxilary surprise minimization objective leads to high variance in estimates. These estimates hurt the performance of agents as a result of unexplored circumstances in the environment. Thus, tackling surprise requires a robust and informative objective.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tackling Stochastic Dynamics}
+In this section we introduce the novel objective for surprise minimization. The motivation behind surprise minimization in multi-agent learning stems from stochasticity in states leading to estimation biases among agents in the case of partially-observed settings. The proposed objective aims to address these challenges by making use of an energy-based scheme which takes into account observations of each agent in the multi-agent system. 
+
+Firstly, we formulate the energy-based objective consisting of surprise as a function of states $s$, joint actions $u$ and deviation $\sigma$ within states for each agent $a$. We call this function as the surprise value function $V_{surp}^{a}(s,u,\sigma)$ which serves as a mapping from agent and environment dynamics to surprise. We then define an energy operator presented in \autoref{eq:2} which sums the free energy across all agents. 
+\begin{gather}
+    \mathcal{T}V^{a}_{surp}(s,u,\sigma) = \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))} \label{eq:2}
+\end{gather}
+We make use of the Mellowmax operator \cite{mellowmax} as our energy operator. The energy operator is similar to the SQL energy formulation \cite{sql} where the energy across different actions is evaluated. In our case, inference is carried out across all agents with actions as prior variables. However, in the special case of using an energy-based model as a $Q$-function, the objective reduces to the SQL objective.
+
+Our choice of the energy operator is based on its unique mathematical properties which result in better convergence. Of these properties, the most useful result is that the energy operator forms a contraction on the surprise value function indicating a guaranteed minimization of surprise within agents. This is formally stated in Theorem \autoref{one}. % refer here
+\begin{customthm}{1}\label{one}
+Given a surprise value function $V^{a}_{surp}(s,u,\sigma) \forall a \in N$, the energy operator $\mathcal{T}V^{a}_{surp}(s,u,\sigma)=\log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}$ forms a contraction on $V^{a}_{surp}(s,u,\sigma)$. 
+\end{customthm}
+\begin{proof}
+  We first define a norm on surprise values $||V_{1} - V_{2}|| \equiv \underset{s,u,\sigma}{max}|V_{1}(s,u,\sigma) - V_{2}(s,u,\sigma)|$. Suppose $\epsilon = ||V_{1} - V_{2}||$,
+  \begin{gather}
+      \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \leq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma) + \epsilon)} \nonumber \\
+      = \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \leq \log \exp{(\epsilon)} \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \leq \epsilon + \log \sum_{a=1}^{N} \exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))} - \log \sum_{a=1}^{N} \exp{(V_{2}(s,u,\sigma))} \leq ||V_{1} - V_{2}|| \label{eq:case1}
+  \end{gather}
+  Similarly, using $\epsilon$ with $\log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))}$,
+  \begin{gather}
+      \log \sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma) + \epsilon)} \geq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \log \exp{(\epsilon)}\sum_{a=1}^{N}\exp{(V_{1}(s,u,\sigma))} \geq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = \epsilon + \log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))} \geq \log \sum_{a=1}^{N}\exp{(V_{2}(s,u,\sigma))} \nonumber \\
+      = ||V_{1} - V_{2}|| \geq \log \sum_{a=1}^{N} \exp{(V_{2}(s,u,\sigma))} - \log \sum_{a=1}^{N} \exp{(V_{1}(s,u,\sigma))} \label{eq:case2}
+  \end{gather}
+  Results in \autoref{eq:case1} and \autoref{eq:case2} prove that the energy operation is a contraction. 
+  \end{proof}  
+The energy-based surprise minimization objective can then be formulated by simply adding the approximated energy-based surprise to the initial Bellman objective \cite{rl} of QMIX as expressed below.
+\begin{gather}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(y - (Q(u,s;\theta) + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}))^{2}] \nonumber
+\end{gather}
+where,
+\begin{gather}
+  y = r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-}) + \beta \log \sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}
+\end{gather}
+This leads to the formulation of the objective,
+\begin{multline}
+    L(\theta )= \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-})\\ + \beta \log \frac{\sum_{a=1}^{N} \exp{(V^{a}_{surp}(s^{'},u^{'},\sigma^{'}))}}{\sum_{a=1}^{N} \exp{(V^{a}_{surp}(s,u,\sigma))}} - Q(u,s;\theta))^{2}]
+\end{multline}
+\begin{gather}
+  L(\theta) = \underset{b \sim R}{\mathbb{E}}[\frac{1}{2}(r + \gamma \underset{u^{'}}{\max}Q(u^{'},s^{'};\theta^{-}) + \beta E - Q(u,s;\theta))^{2}] \label{eq:3}
+\end{gather}
+Here, $E$ is defined as the surprise ratio with $\beta$ as a temperature parameter and $\sigma^{'}$ as the deviation among next states in the batch. The surprise value function is approximated by a universal function approximator (in our case a neural network) with its parameters as $\phi$. $V_{a}(s^{'},u^{'},\sigma^{'})$ is expressed as the negative free energy and $\sum_{a=1}^{N} \exp{(V_{a}(s,u,\sigma))}$ the partition function. Alternatively, $V_{a}(s,u,\sigma)$ can be formulated as the negative free energy with $\sum_{a=1}^{N} \exp{(V_{a}(s^{'},u^{'},\sigma^{'}))}$ as the partition function. The objective incorporates the minimization of surprise across all agents as minimizing the energy in stochastic states. Such a formulation of surprise acts as intrinsic motivation \cite{curiosity} and at the same time provides robustness to multi-agent behavior. Furthermore, the energy formulation in the form of energy ratio $E$ is a suitable choice as it guarantees convergence to minimum surprise at optimal policy $\pi^{*}$. This is formally expressed in Theorem \autoref{two}.
+\begin{customthm}{2}\label{two}
+Upon agent's convergence to an optimal policy $\pi^{*}$, total energy of $\pi^{*}$, expressed by $E^{*}$ will reach a thermal equilibrium consisting of minimum surprise among consecutive states $s$ and $s^{'}$.
+\end{customthm}
+\begin{proof}
+  We begin by initializing a set of $M$ policies $\{\pi_{1},\pi_{2}...,\pi_{M}\}$ having energy ratios $\{E_{1},E_{2}...,E_{M}\}$. Consider a policy $\pi_{1}$ with surprise value function $V_{1}$. $E_{1}$ can then be expressed as
+  \begin{gather}
+      E_{1} = \log [\frac{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s^{'},u^{'},\sigma^{'}))}}{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}] \nonumber
+  \end{gather}
+  Assuming a constant surprise between $s$ and $s^{'}$, we can express $V_{1}^{a}(s^{'},u^{'},\sigma^{'}) = V_{1}^{a}(s,u,\sigma) + \zeta_{1}$ where $\zeta_{1}$ is a constant. Using this expression in $E_{1}$ we get,
+  \begin{gather}
+      E_{1} = \log [\frac{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma) + \zeta_{1}})}{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}] \nonumber \\
+      E_{1} = \log [\frac{\exp{(\zeta_{1})}\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}{\sum_{a=1}^{N}\exp{(V_{1}^{a}(s,u,\sigma))}}] \nonumber \\    
+      E_{1} = \zeta_{1} \nonumber        
+  \end{gather}
+  Similarly, $E_{2}=\zeta_{2}$,$E_{3}=\zeta_{3}$...,$E_{M}=\zeta_{M}$. Thus, the energy residing in policy $\pi$ is proportional to the surprise between consecutive states $s$ and $s^{'}$. Clearly, an optimal policy $\pi^{*}$ is the one with minimum surprise. Mathematically,
+  \begin{gather}
+      \pi^{*} \geq \pi_{1},\pi_{2}...,\pi_{M} \implies \zeta^{*} \leq \zeta_{1},\zeta_{2}...,\zeta_{M} \nonumber \\
+      = \pi^{*} \geq \pi_{1},\pi_{2}...,\pi_{M} \implies E^{*} \leq E_{1},E_{2}...,E_{M} \nonumber
+  \end{gather}
+  Thus, proving that the optimal policy consists of minimum surprise at thermal equilibrium. 
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Experiments}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[height=3cm,width=20cm]{rewards.png}
+  \includegraphics[height=3cm,width=20cm]{tderror.png}
+  \caption{(top) Success rate percentages of our method compared to state-of-the-art MARL methods on six different combat scenarios. The proposed surprise minimization scheme outperforms previous methods on 4 out of 6 tasks. (bottom) Absolute TD error values depicting suitable convergence of our surprise minimization scheme in comparison to MARL methods. While SMiRL-QMIX depicts brittle convergence, our scheme is robust to surprise in the case of fast-paced dynamics.}
+  \label{fig:results}
+\end{figure*}
+Our experiments aim to evaluate the performance, consistency, sample-efficiency and effectiveness of
+the various components of our novel objective. Specifically, we aim to answer the following two questions- (1)
+How does our method compare to current state-of-the-art MARL methods in terms of performance,
+consistency and sample efficiency? and (2) Does the algorithm validate the theoretical claims corresponding to its
+components?
+\subsection{The StarCraft II Benchmark}
+We assess the performance and sample-efficiency of our method on multi-agent StarCraft II micromanagement scenarios \cite{smac} as these consist of a larger number of agents with different action spaces which motivates a greater deal of coordination. Additionally, micromanagement scenarios in StarCraft II consist of multiple opponents which introduce a greater degree of surprise within consecutive states. We compare our method to current state-of-the-art methods, namely QMIX \cite{qmix}, VDN \cite{vdn} and IQL \cite{iql}. In order to compare our surprise-based scheme against pre-existing surprise minimization mechanisms, we compare the objective additionally to a model-free implementation of SMiRL \cite{smirl} in QMIX. All methods were implemented using the PyMARL framework \cite{smac}. The SMiRL component was additionally incorporated as per the update rule provided in \cite{gen}. We use the generalized version of SMiRL as it demonstrates reduced variance across batches. We term this implementation as SMiRL-QMIX for our comparisons. Details related to the implementation are presented in the supplementary material.
+
+\subsection{Performance}
+\subsubsection{Success Rates}
+\autoref{fig:results} (top) presents the comparison of success rate percentages between our method and state-of-the-art MARL algorithms on the StarCraft II micromanagement scenarios. Along with the success rates, we also measure the deviation of performance across the 5 random seeds considered during experiments. We evaluate the performance of agents on a total of 6 scenarios. Out of the 6 scenarios considered, our method presents higher success rates on 4 of these scenarios depicting the suitability of the proposed approach. The method presents performance gains in cases of \textit{so\textunderscore many\textunderscore baneling}, \textit{8m}, \textit{8m\textunderscore vs\textunderscore 9m} and \textit{3s\textunderscore vs\textunderscore 4z} which consist of large number of opponents and greater difficulty levels. When compared to QMIX, the method depicts improved success rates on all of the 6 scenarios. For instance, in scenarios such as \textit{3s\textunderscore vs\textunderscore 3z}, \textit{8m\textunderscore vs\textunderscore 9m} and \textit{so\textunderscore many\textunderscore baneling} QMIX presents sub-optimal performance whereas our method utilizes a comparatively improved joint policy and yields better convergence in a sample-efficient manner. Moreover, on comparing the method with SMiRL-QMIX, we note that the our scheme demonstrates a higher average success rate. This highlights the suitability of the energy-based scheme in the case of a larger number of agents and complex environment dynamics for surprise minimization.
+
+\subsubsection{Convergence}
+\autoref{fig:results} (bottom) presents the absolute TD error values for our method in comparison to baseline methods on the 6 combat scenarios. A sharp rise in error values is observed correponding to each agent which is a result of the exploration schedule. Exploration in the environment steers the agent towards novel states in order to acquire diverse behaviors and expand its search for the optimal policy. In scenarios consisting of greater number of enemies, agents explore over larger timesteps. This results in slower convergence. 
+
+Our method presents suitable convergence properties equivalent to the original QMIX implementation. Since the surprise-based objective is robust to abrupt changes in enemy behavior, agents continue to maintain their optimal policies and optimize expected payoffs. In the case of \textit{8m} and \textit{3s\textunderscore vs\textunderscore 3z} scenarios, the scheme improves the convergence of QMIX and demonstrates consistency across random seeds. While SMiRL-QMIX presents consistent behavior in its error values, it fails to converge on various tasks. This is evident from the accumulating error values towards the end of training. We conjecture that the sub-optimal performance of SMiRL-QMIX is an inherent cause of using batch standard deviations directly in the objective function. High variance in surprise estimates arising from deviations results in inefficient exploration which prevents the agent from acquiring diverse behaviors during execution. 
+
+\subsection{Stochastic Dynamics}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[height=3cm,width=20cm]{surprise.png}
+  \caption{Variation of surprise minimization with temperature $\beta$ on six different combat scenarios. A suitable value of temperature parameter ($\beta=0.01$) controls the stability in surprise minimization by utilizing $E$ as intrinsic motivation.}
+  \label{fig:ablations}
+\end{figure*}
+
+The importance of $\beta$ can be validated by assessing its usage in surprise minimization. However, it is difficult to evaluate surprise minimization directly as surprise value function estimates $V_{surp}^{a}(s,u,\sigma)$ vary from state-to-state across different agents and thus, they present high variance during agent's learning. This, in turn poses hindrance to gain an intuitive understanding of the surprise distribution. We instead observe the variation of $E$ as it is a collection of surprise-based sample estimates across the batch. Additionally, $E$ consists of prior samples $V_{surp}^{a}(s,u,\sigma)$ for $V_{surp}^{a}(s^{'},u^{'},\sigma^{'})$ which makes inference across different agents tractable. \autoref{fig:ablations} (bottom) presents the variation of Energy ratio $E$ with the temperature parameter $\beta$ during learning. We compare two stable variations of E at $\beta=0.001$ and $\beta=0.01$. The objective minimizes $E$ over the course of learning and attains thermal equilibrium with minimum energy. Intuitively, equilibrium corresponds to convergence to optimal policy $\pi^{*}$ which validates the claim in Theorem \autoref{two}. With $\beta=0.01$, the objective presents improved convergence and surprise minimization for 5 out of the 6 considered scenarios, hence validating the suitable choice of $\beta$. On the other hand, a lower value of $\beta=0.001$ does little to minimize surprise across agents. In the case of high $\beta$ values, the objective demonstrates unstable behavior as a result of increasing overestimation error. Thus, a suitable value of $\beta$ is critical for optimal performance and surprise-robust behavior. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+Cooperation among agents allows the completion of diverse and challenging tasks. Agents acquire optimal behaviors which align with policies of other agents in the multi-agent system. Global optimal behavior leads to the maximization of team rewards in TMGs. In this work, we revisited cooperation in MARL from the perspective of TMGs and learning behaviors in Game Theory. We evaluated and assessed the performance and convergence of state-of-the-art MARL methods on a range of challenging StarCraft II micromanagement combat scenarios. Stochastic and fast-paced dynamics in environments as a result of large number of enemies steer agents towards sub-optimal policies. To that end, we present a novel surprise minimization objective. The proposed objective minimizes surprise by utilizing an energy-based formulation as intrinsic motivation. We present theoretical properties of the energy-based formulation which are validated by empirical evaluation of the method. On 4 out of the total 6 scenarios, the proposed method improves the performance of baseline QMIX algorithm. Furthermore, the strong dependence of suprise minimization scheme on temperature parameter highlights its role in controlling stability in tasks with large number of opponents. Further improvements to the stability may be made by reducing the approximation error stemming from the value estimates in agents. We leave this for our future work. 
+
+\bibliographystyle{unsrt} 
+\footnotesize{\bibliography{sample}}
+\end{multicols}
+
+% THINGS TO INCLUDE IN THE SUPPLEMENTARY-
+% APPENDIX- additional results, implementation details
+% VIDEOS- videos of all agents
+% CODE- codebase for simulation
+
+\end{document}
